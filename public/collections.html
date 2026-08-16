@@ -72,9 +72,26 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .prod-section{max-width:1440px;margin:0 auto;padding:32px 80px 100px}
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .prod-card{cursor:pointer;display:block;text-decoration:none;color:inherit}
-.prod-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cream);margin-bottom:16px;border-radius:140px 140px 0 0;}
-.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.prod-card:hover .prod-img img{transform:scale(1.06)}
+.prod-img {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cream);
+  margin-bottom: 18px;
+  border-radius: 12px;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.prod-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s var(--ease);
+}
+.prod-card:hover .prod-img { 
+  transform: translateY(-8px); 
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08); 
+}
+.prod-card:hover .prod-img img { transform: scale(1.05); }
 .prod-wish{position:absolute;top:12px;right:12px;width:34px;height:34px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .25s,color .25s;z-index:2;cursor:pointer;border:none;color:var(--muted)}
 .prod-wish:hover,.prod-wish.active{color:var(--rose);transform:scale(1.1)}
 .prod-badge{position:absolute;top:12px;left:12px;background:var(--black);color:var(--white);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;font-weight:600;border-radius:2px;}
