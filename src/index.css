@@ -151,7 +151,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 /* ─────────────────────────── HERO ─────────────────────────── */
 .hero {
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 45% 55%;
   height: calc(100vh - 92px);
   min-height: 600px;
   overflow: hidden;
@@ -243,11 +243,41 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
 }
 
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 40px;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--ff-sans);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all .4s var(--ease);
+}
+.btn-solid:hover { background: var(--charcoal); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 18px 40px;
+  border: 1px solid var(--border);
+  color: var(--black);
+  font-family: var(--ff-sans);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all .4s var(--ease);
+}
+.btn-outline:hover { background: var(--black); color: var(--white); }
+
 .btn-text {
   font-size: .7rem;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--black);
   font-weight: 500;
   border-bottom: 1px solid rgba(255,255,255,0.3);
   padding-bottom: 2px;
@@ -292,7 +322,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 }
 
 .ho-img-main {
-  width: 70%;
+  width: 90%;
   aspect-ratio: 4 / 5;
   border-radius: 12px;
   overflow: hidden;

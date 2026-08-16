@@ -8,7 +8,7 @@ export default function About() {
       <section className="about-hero">
         <div className="about-hero-img">
           <img 
-            src="https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=900&q=85&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85&auto=format&fit=crop" 
             alt="Lumière atelier" 
           />
         </div>
@@ -41,7 +41,7 @@ export default function About() {
         </div>
         <div className="story-img">
           <img 
-            src="https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=900&q=85&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" 
             alt="Craftsmanship" 
           />
         </div>

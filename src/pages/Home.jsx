@@ -90,7 +90,7 @@ export default function Home() {
       {/* SCROLLABLE HOME: STORY TEASER */}
       <section className="home-story">
         <div className="hs-img">
-          <img src="https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=900&q=85&auto=format&fit=crop" alt="Craftsmanship" />
+          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85&auto=format&fit=crop" alt="Craftsmanship" />
         </div>
         <div className="hs-text">
           <div className="label">Our Heritage</div>
