@@ -22,7 +22,7 @@ const ALL = [
 
   // BANGLES
   {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Rosette Dream Gold Bangle',sub:'22K Gold · Bangles',price:'₹1,02,681',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Peach Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹58,226',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Peach Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹58,226',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Exquisite Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹81,821',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Golden Sculptural Zoul Gold Bangle',sub:'22K Gold · Bangles · Zoul',price:'₹54,149',orig:'',img:'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Auric Golden Bangle',sub:'22K Gold · Bangles',price:'₹1,37,061',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
@@ -32,7 +32,7 @@ const ALL = [
   {cat:'gemstone',type:'pendants',badge:'Limited',badgeType:'gold-b',name:'Emerald Drop Pendant',sub:'Gemstone · Pendants · Precia',price:'₹56,000',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
 
   // DIAMOND
-  {cat:'diamond',type:'rings',badge:'New',badgeType:'new-b',name:'Starlight Solitaire Ring',sub:'Diamond · Rings · Mine',price:'₹1,25,000',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'diamond',type:'rings',badge:'New',badgeType:'new-b',name:'Starlight Solitaire Ring',sub:'Diamond · Rings · Mine',price:'₹1,25,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
   {cat:'diamond',type:'rings',badge:'Bestseller',badgeType:'gold-b',name:'Eternity Diamond Band',sub:'Diamond · Rings · Mine',price:'₹95,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
 
   // BRIDAL

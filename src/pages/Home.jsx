@@ -71,7 +71,7 @@ export default function Home() {
             </Link>
             <Link to="/collections?cat=diamond" className="hc-card">
               <div className="hc-img">
-                <img src="https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop" alt="GIA Diamonds" />
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="GIA Diamonds" />
               </div>
               <h3 className="hc-name">Diamonds</h3>
               <span className="hc-link">Shop Diamonds &rarr;</span>
