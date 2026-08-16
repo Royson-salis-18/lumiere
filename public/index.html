@@ -172,9 +172,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .hero {
   display: grid;
   grid-template-columns: 55% 45%;
-  height: calc(100vh - 92px);
-  max-height: 860px;
-  min-height: 560px;
+  min-height: max(calc(100vh - 92px), 760px);
   overflow: hidden;
 }
 
