@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Atelier — Lumière Fine Jewellery</title>
+<meta name="description" content="Discover the story behind Lumière — a century of artisan mastery, ethically sourced materials, and designs born from passion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0d0c0b;--off-black:#1a1714;--charcoal:#2c2825;--mid:#6b6460;--muted:#a09890;
+  --border:#e8e2db;--cream:#f7f3ee;--ivory:#fdfaf6;--white:#ffffff;
+  --gold:#b8963e;--gold-lt:#d4b06a;--rose:#c9796a;
+  --ff-serif:'Cormorant Garamond',Georgia,serif;--ff-sans:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.25,.8,.25,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);background:var(--white);color:var(--charcoal);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+.topbar{background:var(--black);color:rgba(255,255,255,.7);text-align:center;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 20px}
+.topbar b{color:var(--gold-lt);font-weight:500}
+.nav-wrap{position:sticky;top:0;z-index:800;background:var(--white);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:68px}
+.brand{font-family:var(--ff-serif);font-size:1.75rem;font-weight:500;letter-spacing:.15em;color:var(--black)}
+.brand sup{font-size:.45em;vertical-align:super;font-weight:300}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--charcoal);position:relative;padding-bottom:2px;transition:color .25s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-actions{display:flex;gap:20px;align-items:center}
+.nav-actions a,button.nav-actions-btn{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);transition:color .25s}
+.nav-cta{padding:10px 24px!important;background:var(--black)!important;color:var(--white)!important;letter-spacing:.14em;font-size:.65rem!important;transition:background .3s!important}
+.nav-cta:hover{background:var(--gold)!important}
+
+.label{display:inline-flex;align-items:center;gap:10px;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;font-weight:500;color:var(--gold)}
+.label::before{content:'';width:24px;height:1px;background:currentColor;flex-shrink:0}
+
+/* ABOUT HERO */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;min-height:560px;overflow:hidden}
+.about-hero-img{overflow:hidden}
+.about-hero-img img{width:100%;height:100%;object-fit:cover}
+.about-hero-text{display:flex;flex-direction:column;justify-content:center;padding:80px 90px;background:var(--cream)}
+.about-headline{font-family:var(--ff-serif);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;line-height:1.1;color:var(--black);margin:16px 0 24px}
+.about-headline em{font-style:italic;color:var(--gold)}
+.about-body{font-size:.9rem;color:var(--mid);line-height:1.9;font-weight:300;max-width:420px;margin-bottom:40px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 38px;background:var(--black);color:var(--white);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;transition:background .3s}
+.btn-primary:hover{background:var(--gold)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat-item{padding:50px 40px;text-align:center;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:var(--ff-serif);font-size:3rem;font-weight:300;color:var(--black);line-height:1}
+.stat-lbl{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* STORY SECTION */
+.story{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.story-img{overflow:hidden;position:relative}
+.story-img img{width:100%;height:100%;object-fit:cover}
+.story-text{display:flex;flex-direction:column;justify-content:center;padding:80px 90px;background:var(--black)}
+.story-text .label{color:var(--gold-lt)}
+.story-text .label::before{background:var(--gold-lt)}
+.story-heading{font-family:var(--ff-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;color:var(--white);margin:16px 0 24px}
+.story-heading em{font-style:italic;color:var(--gold-lt)}
+.story-body{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.9;font-weight:300;max-width:380px}
+
+/* VALUES */
+.values{max-width:1440px;margin:0 auto;padding:100px 80px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+.value-card{padding:50px 44px;border:1px solid var(--border);transition:box-shadow .35s,border-color .35s}
+.value-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.07);border-color:transparent}
+.value-num{font-family:var(--ff-serif);font-size:3rem;font-weight:300;color:var(--gold);opacity:.4;line-height:1;margin-bottom:20px}
+.value-title{font-family:var(--ff-serif);font-size:1.4rem;font-weight:400;color:var(--black);margin-bottom:14px}
+.value-desc{font-size:.85rem;color:var(--mid);line-height:1.85;font-weight:300}
+
+/* TEAM */
+.team{background:var(--cream);padding:100px 80px}
+.team-inner{max-width:1440px;margin:0 auto}
+.sec-heading{font-family:var(--ff-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.15;color:var(--black);margin-top:12px}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+.team-card{}
+.team-img{aspect-ratio:3/4;overflow:hidden;background:var(--white)}
+.team-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.team-card:hover .team-img img{transform:scale(1.05)}
+.team-name{font-family:var(--ff-serif);font-size:1.2rem;font-weight:400;color:var(--black);margin-top:18px}
+.team-role{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+
+/* PROMISE */
+.promise{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.promise-item{padding:50px 40px;text-align:center;border-right:1px solid var(--border)}
+.promise-item:last-child{border-right:none}
+.promise-icon{font-family:var(--ff-serif);font-size:1.8rem;color:var(--gold);margin-bottom:14px}
+.promise-title{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;color:var(--black);margin-bottom:8px}
+.promise-desc{font-size:.78rem;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* CTA */
+.cta{background:var(--off-black, #1a1714);padding:100px 80px;text-align:center}
+.cta-heading{font-family:var(--ff-serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin:16px 0 24px;line-height:1.15}
+.cta-heading em{color:var(--gold-lt);font-style:italic}
+.cta-body{font-size:.9rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto 40px;line-height:1.85;font-weight:300}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;padding:15px 44px;background:var(--gold);color:var(--white);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;transition:background .3s,transform .3s;border:none;cursor:pointer}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:64px 80px 36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:36px}
+.foot-brand-name{font-family:var(--ff-serif);font-size:1.9rem;font-weight:500;letter-spacing:.15em;color:var(--white);display:block;margin-bottom:16px}
+.foot-text{font-size:.82rem;line-height:1.9;font-weight:300}
+.foot-col h5{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:500;margin-bottom:20px}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:10px}
+.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.4);transition:color .25s;font-weight:300}
+.foot-col ul li a:hover{color:var(--gold-lt)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.68rem}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm-links a{color:rgba(255,255,255,.35);font-size:.68rem;transition:color .25s}
+.foot-btm-links a:hover{color:var(--gold-lt)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  .about-hero,.story{grid-template-columns:1fr}
+  .about-hero-img,.story-img{min-height:300px}
+  .about-hero-text,.story-text{padding:60px 40px}
+  .stats,.promise{grid-template-columns:1fr 1fr}
+  .values-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-inner{padding:0 24px}
+  .cta,.team,.values{padding:70px 40px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><b>New Arrival:</b> The Soleil Collection — Handcrafted Gold &amp; Diamond. &nbsp;·&nbsp; Free shipping on orders above ₹25,000</div>
+<header class="nav-wrap">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">LUMIÈRE<sup>®</sup></a>
+    <nav><ul class="nav-links">
+      <li><a href="collections.html">Collections</a></li>
+      <li><a href="collections.html">Gold</a></li>
+      <li><a href="collections.html">Diamond</a></li>
+      <li><a href="collections.html">Bridal</a></li>
+      <li><a href="about.html" class="active">Atelier</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <a href="#">Search</a>
+      <a href="#">Wishlist</a>
+      <a href="contact.html" class="nav-cta">Book a Visit</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="about-hero-img">
+    <img src="https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=900&q=85&auto=format&fit=crop" alt="Lumière atelier" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=900&q=85&auto=format&fit=crop'">
+  </div>
+  <div class="about-hero-text">
+    <span class="label">Our Story</span>
+    <h1 class="about-headline">A Century of<br><em>Artisan</em> Mastery</h1>
+    <p class="about-body">
+      Lumière was born from a single belief: that jewellery is not an accessory, but a testament to the human spirit. Since 1924, our artisans have carried forward a tradition of unparalleled craftsmanship — shaping gold, setting diamonds, and coaxing colour from the rarest gemstones on earth.
+    </p>
+    <a href="collections.html" class="btn-primary">Explore Collections &rarr;</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats reveal">
+  <div class="stat-item"><div class="stat-num">100+</div><div class="stat-lbl">Years of Heritage</div></div>
+  <div class="stat-item"><div class="stat-num">500+</div><div class="stat-lbl">Unique Designs</div></div>
+  <div class="stat-item"><div class="stat-num">50K+</div><div class="stat-lbl">Clients Worldwide</div></div>
+  <div class="stat-item"><div class="stat-num">22</div><div class="stat-lbl">Award Wins</div></div>
+</div>
+
+<!-- STORY STRIP -->
+<section class="story reveal">
+  <div class="story-text">
+    <span class="label" style="color:var(--gold-lt)">Our Philosophy</span>
+    <h2 class="story-heading">Made with Intent.<br><em>Worn with Pride.</em></h2>
+    <p class="story-body">
+      Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty. Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
+    </p>
+  </div>
+  <div class="story-img">
+    <img src="https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=900&q=85&auto=format&fit=crop" alt="Craftsmanship" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=85&auto=format&fit=crop'">
+  </div>
+</section>
+
+<!-- VALUES -->
+<div class="values reveal">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div>
+      <span class="label">What We Stand For</span>
+      <h2 class="sec-heading" style="margin-top:12px;">Our Commitments<br>to You</h2>
+    </div>
+    <a href="contact.html" style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--charcoal);border-bottom:1px solid var(--charcoal);padding-bottom:2px;">Get in Touch</a>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <div class="value-title">BIS 916 Hallmarked Gold</div>
+      <div class="value-desc">Every piece is certified for purity under India's Bureau of Indian Standards. We use only 22K (916) and 18K gold — never an ounce less.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <div class="value-title">Conflict-Free Diamonds</div>
+      <div class="value-desc">All our diamonds are GIA-certified and sourced under the Kimberley Process. Brilliance with a clear conscience — always.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <div class="value-title">Lifetime Exchange</div>
+      <div class="value-desc">Exchange any Lumière piece at full market value, forever. Your trust in us is a commitment we honour without expiry.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <div class="value-title">Guaranteed Buyback</div>
+      <div class="value-desc">We offer 100% value on gold exchange and a guaranteed buyback policy — because we believe your investment should always be protected.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">05</div>
+      <div class="value-title">Complimentary Insurance</div>
+      <div class="value-desc">Every Lumière purchase comes with complimentary jewellery insurance for the first year — your peace of mind is part of the package.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-num">06</div>
+      <div class="value-title">Fair Price Transparency</div>
+      <div class="value-desc">No hidden making charges. No inflated markups. Our Fair Price Policy means you always know exactly what you are paying for.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMISE STRIP -->
+<div class="promise reveal">
+  <div class="promise-item"><div class="promise-icon">◆</div><div class="promise-title">BIS Hallmarked Gold</div><div class="promise-desc">Certified 22K or 18K purity on every piece.</div></div>
+  <div class="promise-item"><div class="promise-icon">◇</div><div class="promise-title">Conflict-Free Diamonds</div><div class="promise-desc">GIA certified, ethically sourced.</div></div>
+  <div class="promise-item"><div class="promise-icon">✦</div><div class="promise-title">Lifetime Exchange</div><div class="promise-desc">Full value, forever — no questions asked.</div></div>
+  <div class="promise-item"><div class="promise-icon">→</div><div class="promise-title">Free Home Trial</div><div class="promise-desc">We bring the boutique to your doorstep.</div></div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <span class="label" style="justify-content:center;color:var(--gold-lt)">Begin Your Journey</span>
+  <h2 class="cta-heading">Find Your<br><em>Perfect Piece</em></h2>
+  <p class="cta-body">Let our expert stylists guide you through 500+ designs — in-store, at home, or virtually. Book a private consultation today.</p>
+  <a href="contact.html" class="btn-gold">Book a Consultation &rarr;</a>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div><span class="foot-brand-name">LUMIÈRE</span><p class="foot-text">A legacy of elegance. Each piece in our collection is a testament to the timeless pursuit of beauty and the skilled hands that create it.</p></div>
+    <div class="foot-col"><h5>Collections</h5><ul>
+      <li><a href="collections.html">All Jewellery</a></li>
+      <li><a href="collections.html">Gold</a></li>
+      <li><a href="collections.html">Diamond</a></li>
+      <li><a href="collections.html">Bridal</a></li>
+    </ul></div>
+    <div class="foot-col"><h5>Company</h5><ul>
+      <li><a href="about.html">Our Atelier</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Store Locator</a></li>
+    </ul></div>
+    <div class="foot-col"><h5>Client Care</h5><ul>
+      <li><a href="contact.html">Book a Visit</a></li>
+      <li><a href="#">Returns Policy</a></li>
+      <li><a href="#">Size Guide</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Lumière Fine Jewellery. All rights reserved.</span>
+    <div class="foot-btm-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+<script>
+const io = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
