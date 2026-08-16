@@ -53,7 +53,7 @@ export default function Home() {
             </div>
             <div className="hero-gallery-sub-img">
               <img
-                src="https://images.unsplash.com/photo-1589893354433-8a30d52ff2bd?w=700&q=85&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=700&q=85&auto=format&fit=crop"
                 alt="Diamond necklace on model"
               />
               <div className="hero-float-badge">
