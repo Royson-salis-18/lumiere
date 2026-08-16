@@ -18,7 +18,7 @@ export default function Home() {
             Each piece at Lumière is born from a singular obsession with perfection — shaped by artisans who have spent generations mastering the ancient craft of fine jewellery.
           </p>
           <div className="hero-actions">
-            <Link to="/collections" className="btn-primary">Explore Collections &rarr;</Link>
+            <Link to="/collections" className="btn-primary">Explore Collections</Link>
             <Link to="/about" className="btn-text">Our Atelier</Link>
           </div>
           <div className="hero-meta">
@@ -51,7 +51,7 @@ export default function Home() {
                 alt="Fine jewellery editorial"
               />
             </div>
-            <div className="hero-gallery-sub-img" style={{position: 'relative'}}>
+            <div className="hero-gallery-sub-img">
               <img
                 src="https://images.unsplash.com/photo-1589893354433-8a30d52ff2bd?w=700&q=85&auto=format&fit=crop"
                 alt="Diamond necklace on model"
@@ -75,6 +75,9 @@ export default function Home() {
           <span className="marquee-item">Ethically Sourced Gemstones</span><span className="marquee-dot">◆</span>
           <span className="marquee-item">Free Home Trial</span><span className="marquee-dot">◆</span>
           <span className="marquee-item">30-Day Returns</span><span className="marquee-dot">◆</span>
+          <span className="marquee-item">Handcrafted Gold</span><span className="marquee-dot">◆</span>
+          <span className="marquee-item">Conflict-Free Diamonds</span><span className="marquee-dot">◆</span>
+          <span className="marquee-item">BIS Hallmarked</span><span className="marquee-dot">◆</span>
         </div>
       </div>
     </main>
