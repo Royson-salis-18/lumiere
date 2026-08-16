@@ -172,7 +172,8 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .hero {
   display: grid;
   grid-template-columns: 55% 45%;
-  min-height: max(calc(100vh - 92px), 720px);
+  height: calc(100vh - 92px);
+  min-height: 500px;
   overflow: hidden;
 }
 
@@ -181,7 +182,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 60px 80px;
+  padding: clamp(20px, 4vh, 60px) clamp(30px, 5vw, 80px);
   background: var(--cream);
   position: relative;
   overflow: hidden;
@@ -202,7 +203,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 }
 
 .hero-eyebrow {
-  margin-bottom: 24px;
+  margin-bottom: clamp(12px, 3vh, 24px);
 }
 .hero-issue {
   font-size: .6rem;
@@ -215,11 +216,11 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 
 .hero-headline {
   font-family: var(--ff-serif);
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: clamp(2.5rem, 4vw, 5.2rem);
   font-weight: 300;
   line-height: 1.06;
   color: var(--black);
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 3vh, 24px);
   letter-spacing: -.01em;
 }
 .hero-headline .block {
@@ -235,7 +236,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   color: var(--mid);
   line-height: 1.85;
   max-width: 380px;
-  margin-bottom: 40px;
+  margin-bottom: clamp(24px, 4vh, 40px);
   font-weight: 300;
 }
 
@@ -278,16 +279,16 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .btn-text:hover { color: var(--gold); border-color: var(--gold); }
 
 .hero-meta {
-  margin-top: 60px;
+  margin-top: clamp(24px, 5vh, 60px);
   display: flex;
-  gap: 40px;
-  padding-top: 40px;
+  gap: clamp(20px, 4vw, 40px);
+  padding-top: clamp(16px, 3vh, 40px);
   border-top: 1px solid var(--border);
 }
 .meta-item {}
 .meta-num {
   font-family: var(--ff-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 400;
   color: var(--black);
   line-height: 1;
@@ -304,11 +305,11 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 /* Right: stacked images */
 .hero-gallery {
   display: grid;
-  grid-template-rows: 1fr 280px;
-  gap: 20px;
+  grid-template-rows: 1.4fr 1fr;
+  gap: clamp(12px, 2vh, 20px);
   position: relative;
   height: 100%;
-  padding: 0 0 20px 20px;
+  padding: 0 0 clamp(12px, 2vh, 20px) clamp(12px, 2vw, 20px);
 }
 .hero-gallery-main {
   width: 100%;
@@ -328,7 +329,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .hero-gallery-sub {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: clamp(12px, 2vw, 20px);
 }
 .hero-gallery-sub-img {
   width: 100%;
