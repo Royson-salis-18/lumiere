@@ -24,7 +24,7 @@ export default function Home() {
         {/* EDITORIAL OVERLAP SHOWCASE */}
         <div className="hero-overlap">
           <div className="ho-img-main">
-            <img src="https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=900&q=85&auto=format&fit=crop" alt="Model wearing luxury jewellery" />
+            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Model wearing luxury jewellery" />
           </div>
           <div className="ho-img-tl">
             <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond ring close up" />

@@ -9,7 +9,7 @@ const ALL = [
   {cat:'gold',type:'rings',badge:'',badgeType:'',name:'Blooming Drift Gold Ring',sub:'22K Gold · Rings',price:'₹33,420',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
 
   // NECKLACES
-  {cat:'gold',type:'necklaces',badge:'Only 1 Left',badgeType:'',name:'Velvet Blossom Gold Necklace Set',sub:'22K Gold · Necklace Set',price:'₹1,80,825',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'necklaces',badge:'Only 1 Left',badgeType:'',name:'Velvet Blossom Gold Necklace Set',sub:'22K Gold · Necklace Set',price:'₹1,80,825',orig:'',img:'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'necklaces',badge:'',badgeType:'',name:'Roselight Lotus Gold Necklace',sub:'22K Gold · Necklaces',price:'₹1,65,038',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
   {cat:'gemstone',type:'necklaces',badge:'Limited',badgeType:'gold-b',name:'Blossom Trail Tourmaline Pendant & Chain',sub:'Gemstone · Pendant Set',price:'₹1,09,470',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
 
@@ -37,7 +37,7 @@ const ALL = [
 
   // BRIDAL
   {cat:'bridal',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Bridal Kangan Set',sub:'22K Gold · Bangles · Viraaz',price:'₹88,000',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
-  {cat:'bridal',type:'necklaces',badge:'',badgeType:'',name:'Royal Polki Bridal Necklace',sub:'22K Gold · Necklaces · Viraaz',price:'₹2,40,000',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'bridal',type:'necklaces',badge:'',badgeType:'',name:'Royal Polki Bridal Necklace',sub:'22K Gold · Necklaces · Viraaz',price:'₹2,40,000',orig:'',img:'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=85&auto=format&fit=crop'},
 
   // MANGALSUTRA
   {cat:'mangalsutra',type:'necklaces',badge:'',badgeType:'',name:'Geometric Filigree Gold Mangalsutra',sub:'22K Gold · Mangalsutra',price:'₹63,223',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
