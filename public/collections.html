@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collections — Lumière Fine Jewellery</title>
+<meta name="description" content="Browse 500+ exquisite gold, diamond, gemstone and bridal jewellery designs at Lumière.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0d0c0b;--off-black:#1a1714;--charcoal:#2c2825;--mid:#6b6460;--muted:#a09890;
+  --border:#e8e2db;--cream:#f7f3ee;--ivory:#fdfaf6;--white:#ffffff;
+  --gold:#b8963e;--gold-lt:#d4b06a;--rose:#c9796a;
+  --ff-serif:'Cormorant Garamond',Georgia,serif;--ff-sans:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.25,.8,.25,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-sans);background:var(--white);color:var(--charcoal);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* TOPBAR */
+.topbar{background:var(--black);color:rgba(255,255,255,.7);text-align:center;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 20px;font-weight:400}
+.topbar b{color:var(--gold-lt);font-weight:500}
+
+/* NAVBAR */
+.nav-wrap{position:sticky;top:0;z-index:800;background:var(--white);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:68px}
+.brand{font-family:var(--ff-serif);font-size:1.75rem;font-weight:500;letter-spacing:.15em;color:var(--black)}
+.brand sup{font-size:.45em;vertical-align:super;font-weight:300;letter-spacing:.05em}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:var(--charcoal);position:relative;padding-bottom:2px;transition:color .25s}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-actions{display:flex;gap:20px;align-items:center}
+.nav-actions button,.nav-actions a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mid);transition:color .25s;background:none;border:none;cursor:pointer}
+.nav-actions button:hover,.nav-actions a:hover{color:var(--black)}
+.nav-cta{padding:10px 24px!important;background:var(--black)!important;color:var(--white)!important;letter-spacing:.14em;font-size:.65rem!important;transition:background .3s!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--white)!important}
+
+/* PAGE HERO */
+.page-hero{background:var(--cream);padding:80px 80px 60px;border-bottom:1px solid var(--border)}
+.page-hero-inner{max-width:1440px;margin:0 auto}
+.label{display:inline-flex;align-items:center;gap:10px;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;font-weight:500;color:var(--gold)}
+.label::before{content:'';width:24px;height:1px;background:currentColor;flex-shrink:0}
+.page-title{font-family:var(--ff-serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;color:var(--black);margin-top:12px;line-height:1.1}
+.page-title em{font-style:italic;color:var(--gold)}
+.page-sub{font-size:.9rem;color:var(--mid);margin-top:12px;font-weight:300;max-width:480px;line-height:1.8}
+
+/* FILTER BAR */
+.filter-section{background:var(--white);border-bottom:1px solid var(--border);padding:0 80px;position:sticky;top:68px;z-index:700}
+.filter-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;padding:16px 0}
+.filter-inner::-webkit-scrollbar{display:none}
+.f-group{display:flex;align-items:center;gap:8px;padding-right:24px;border-right:1px solid var(--border);margin-right:24px}
+.f-group:last-child{border-right:none;margin-right:0}
+.f-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-weight:500;margin-right:4px}
+.pill{padding:7px 18px;border:1px solid var(--border);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--mid);background:transparent;cursor:pointer;transition:all .22s;white-space:nowrap;border-radius:2px}
+.pill:hover,.pill.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.pill.gold-active{background:var(--gold);color:var(--white);border-color:var(--gold)}
+
+/* RESULTS BAR */
+.results-bar{max-width:1440px;margin:0 auto;padding:24px 80px 0;display:flex;justify-content:space-between;align-items:center}
+.results-count{font-size:.8rem;color:var(--muted)}
+.results-count b{color:var(--charcoal);font-weight:500}
+.sort-wrap select{border:1px solid var(--border);padding:8px 14px;font-family:var(--ff-sans);font-size:.75rem;color:var(--charcoal);background:var(--white);cursor:pointer;outline:none}
+
+/* PRODUCT GRID */
+.prod-section{max-width:1440px;margin:0 auto;padding:32px 80px 100px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.prod-card{cursor:pointer;display:block;text-decoration:none;color:inherit}
+.prod-img{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cream);margin-bottom:16px;border-radius:140px 140px 0 0;}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.prod-card:hover .prod-img img{transform:scale(1.06)}
+.prod-wish{position:absolute;top:12px;right:12px;width:34px;height:34px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .25s,color .25s;z-index:2;cursor:pointer;border:none;color:var(--muted)}
+.prod-wish:hover,.prod-wish.active{color:var(--rose);transform:scale(1.1)}
+.prod-badge{position:absolute;top:12px;left:12px;background:var(--black);color:var(--white);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;font-weight:600}
+.prod-badge.gold-b{background:var(--gold)}
+.prod-badge.new-b{background:var(--rose)}
+.prod-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.prod-name{font-family:var(--ff-serif);font-size:1.05rem;font-weight:400;color:var(--black);margin-bottom:8px;line-height:1.3}
+.prod-price{font-size:.85rem;font-weight:500;color:var(--charcoal)}
+.prod-price del{color:var(--muted);font-weight:300;font-size:.78rem;margin-left:6px}
+
+/* LOAD MORE */
+.load-wrap{text-align:center;padding:20px 0 60px}
+.btn-load{display:inline-flex;align-items:center;gap:10px;padding:15px 48px;border:1.5px solid var(--black);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--black);background:transparent;cursor:pointer;transition:all .3s}
+.btn-load:hover{background:var(--black);color:var(--white)}
+.btn-load:disabled{opacity:.4;cursor:not-allowed}
+
+/* FOOTER */
+footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:64px 80px 36px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:36px}
+.foot-brand-name{font-family:var(--ff-serif);font-size:1.9rem;font-weight:500;letter-spacing:.15em;color:var(--white);display:block;margin-bottom:16px}
+.foot-text{font-size:.82rem;line-height:1.9;font-weight:300}
+.foot-col h5{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:500;margin-bottom:20px}
+.foot-col ul{list-style:none}
+.foot-col ul li{margin-bottom:10px}
+.foot-col ul li a{font-size:.82rem;color:rgba(255,255,255,.4);transition:color .25s;font-weight:300}
+.foot-col ul li a:hover{color:var(--gold-lt)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;font-size:.68rem}
+.foot-btm-links{display:flex;gap:20px}
+.foot-btm-links a{color:rgba(255,255,255,.35);font-size:.68rem;transition:color .25s}
+.foot-btm-links a:hover{color:var(--gold-lt)}
+
+@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){
+  .nav-inner{padding:0 24px}.filter-section{padding:0 24px}.results-bar,.prod-section{padding-left:24px;padding-right:24px}
+  .page-hero{padding:60px 24px 40px}.prod-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .foot-grid{grid-template-columns:1fr;gap:30px}.footer{padding:50px 24px 28px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><b>New Arrival:</b> The Soleil Collection — Handcrafted Gold &amp; Diamond. &nbsp;·&nbsp; Free shipping on orders above ₹25,000</div>
+
+<header class="nav-wrap">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">LUMIÈRE<sup>®</sup></a>
+    <nav><ul class="nav-links">
+      <li><a href="collections.html" class="active">Collections</a></li>
+      <li><a href="collections.html">Gold</a></li>
+      <li><a href="collections.html">Diamond</a></li>
+      <li><a href="collections.html">Bridal</a></li>
+      <li><a href="about.html">Atelier</a></li>
+    </ul></nav>
+    <div class="nav-actions">
+      <button>Search</button>
+      <button>Wishlist</button>
+      <a href="contact.html" class="nav-cta">Book a Visit</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="label">500+ Designs</span>
+    <h1 class="page-title">The Complete<br><em>Collection</em></h1>
+    <p class="page-sub">Gold, Diamond, Gemstone &amp; Bridal — curated from the finest artisan workshops across India.</p>
+  </div>
+</div>
+
+<div class="filter-section">
+  <div class="filter-inner">
+    <div class="f-group">
+      <span class="f-label">Category</span>
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="gold">Gold</button>
+      <button class="pill" data-cat="diamond">Diamond</button>
+      <button class="pill" data-cat="gemstone">Gemstone</button>
+      <button class="pill" data-cat="bridal">Bridal</button>
+      <button class="pill" data-cat="mangalsutra">Mangalsutra</button>
+    </div>
+    <div class="f-group">
+      <span class="f-label">Type</span>
+      <button class="pill" data-type="rings">Rings</button>
+      <button class="pill" data-type="necklaces">Necklaces</button>
+      <button class="pill" data-type="earrings">Earrings</button>
+      <button class="pill" data-type="bangles">Bangles</button>
+      <button class="pill" data-type="pendants">Pendants</button>
+    </div>
+    <div class="f-group">
+      <span class="f-label">Price</span>
+      <button class="pill" data-price="u50">Under ₹50K</button>
+      <button class="pill" data-price="u1l">₹50K – ₹1L</button>
+      <button class="pill" data-price="a1l">Above ₹1L</button>
+    </div>
+  </div>
+</div>
+
+<div class="results-bar">
+  <p class="results-count">Showing <b id="countNum">24</b> of <b>500+</b> pieces</p>
+  <div class="sort-wrap">
+    <select id="sortSel">
+      <option value="best">Best Matches</option>
+      <option value="priceAsc">Price: Low to High</option>
+      <option value="priceDesc">Price: High to Low</option>
+      <option value="new">Newest First</option>
+    </select>
+  </div>
+</div>
+
+<div class="prod-section">
+  <div class="prod-grid" id="prodGrid"></div>
+</div>
+<div class="load-wrap">
+  <button class="btn-load" id="loadBtn">Load More Pieces</button>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <span class="foot-brand-name">LUMIÈRE</span>
+      <p class="foot-text">A legacy of elegance. Each piece in our collection is a testament to the timeless pursuit of beauty and the skilled hands that create it.</p>
+    </div>
+    <div class="foot-col"><h5>Collections</h5><ul>
+      <li><a href="collections.html">All Jewellery</a></li>
+      <li><a href="collections.html">Gold</a></li>
+      <li><a href="collections.html">Diamond</a></li>
+      <li><a href="collections.html">Gemstone</a></li>
+      <li><a href="collections.html">Bridal</a></li>
+    </ul></div>
+    <div class="foot-col"><h5>Company</h5><ul>
+      <li><a href="about.html">Our Atelier</a></li>
+      <li><a href="about.html">Craftsmanship</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Store Locator</a></li>
+    </ul></div>
+    <div class="foot-col"><h5>Client Care</h5><ul>
+      <li><a href="contact.html">Book a Visit</a></li>
+      <li><a href="#">Jewellery Care</a></li>
+      <li><a href="#">Returns Policy</a></li>
+      <li><a href="#">Shipping Info</a></li>
+      <li><a href="#">Size Guide</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Lumière Fine Jewellery. All rights reserved.</span>
+    <div class="foot-btm-links">
+      <a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Real product data from Tanishq & Malabar Gold ──
+const ALL = [
+  // RINGS (Gold)
+  {cat:'gold',type:'rings',badge:'Bestseller',badgeType:'gold-b',name:'Secret Garden Gold Ring',sub:'22K Gold · Rings',price:'₹40,525',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'rings',badge:'',badgeType:'',name:'Petal Poetry Gold Ring',sub:'22K Gold · Rings',price:'₹32,503',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gemstone',type:'rings',badge:'New',badgeType:'new-b',name:'Twilight Petal Tourmaline Ring',sub:'Gemstone · Rings',price:'₹41,839',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'rings',badge:'',badgeType:'',name:'Blooming Drift Gold Ring',sub:'22K Gold · Rings',price:'₹33,420',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
+
+  // NECKLACES
+  {cat:'gold',type:'necklaces',badge:'Only 1 Left',badgeType:'',name:'Velvet Blossom Gold Necklace Set',sub:'22K Gold · Necklace Set',price:'₹1,80,825',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'necklaces',badge:'',badgeType:'',name:'Roselight Lotus Gold Necklace',sub:'22K Gold · Necklaces',price:'₹1,65,038',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gemstone',type:'necklaces',badge:'Limited',badgeType:'gold-b',name:'Blossom Trail Tourmaline Pendant & Chain',sub:'Gemstone · Pendant Set',price:'₹1,09,470',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+
+  // EARRINGS
+  {cat:'gold',type:'earrings',badge:'',badgeType:'',name:'Lotus Blush Gold Hoop Earrings',sub:'22K Gold · Earrings',price:'₹52,608',orig:'',img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'earrings',badge:'Only 1 Left',badgeType:'',name:'Blushing Bloom Gold Hoop Earrings',sub:'22K Gold · Earrings',price:'₹47,880',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'earrings',badge:'',badgeType:'',name:'Untamed Halo Gold Stud Earrings',sub:'22K Gold · Earrings',price:'₹39,634',orig:'',img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'earrings',badge:'Only 1 Left',badgeType:'',name:'Gilded Wave Gold Drop Earrings',sub:'22K Gold · Earrings',price:'₹93,313',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'earrings',badge:'',badgeType:'',name:'Stunning Abstract Drop Earrings',sub:'22K Gold · Earrings',price:'₹83,623',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+
+  // BANGLES
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Rosette Dream Gold Bangle',sub:'22K Gold · Bangles',price:'₹1,02,681',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Peach Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹58,226',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Exquisite Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹81,821',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Golden Sculptural Zoul Gold Bangle',sub:'22K Gold · Bangles · Zoul',price:'₹54,149',orig:'',img:'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Auric Golden Bangle',sub:'22K Gold · Bangles',price:'₹1,37,061',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
+
+  // PENDANTS
+  {cat:'gold',type:'pendants',badge:'',badgeType:'',name:'Dainty Om & Ganesha Gold Pendant',sub:'22K Gold · Pendants',price:'₹29,651',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gemstone',type:'pendants',badge:'Limited',badgeType:'gold-b',name:'Emerald Drop Pendant',sub:'Gemstone · Pendants · Precia',price:'₹56,000',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+
+  // DIAMOND
+  {cat:'diamond',type:'rings',badge:'New',badgeType:'new-b',name:'Starlight Solitaire Ring',sub:'Diamond · Rings · Mine',price:'₹1,25,000',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'diamond',type:'rings',badge:'Bestseller',badgeType:'gold-b',name:'Eternity Diamond Band',sub:'Diamond · Rings · Mine',price:'₹95,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+
+  // BRIDAL
+  {cat:'bridal',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Bridal Kangan Set',sub:'22K Gold · Bangles · Viraaz',price:'₹88,000',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
+  {cat:'bridal',type:'necklaces',badge:'',badgeType:'',name:'Royal Polki Bridal Necklace',sub:'22K Gold · Necklaces · Viraaz',price:'₹2,40,000',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+
+  // MANGALSUTRA
+  {cat:'mangalsutra',type:'necklaces',badge:'',badgeType:'',name:'Geometric Filigree Gold Mangalsutra',sub:'22K Gold · Mangalsutra',price:'₹63,223',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+  {cat:'mangalsutra',type:'necklaces',badge:'',badgeType:'',name:'Sacred Mosaic Gold Mangalsutra',sub:'22K Gold · Mangalsutra',price:'₹54,848',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
+];
+
+let displayed = [], currentCat = 'all', currentType = '', page = 0, perPage = 12;
+
+function getFiltered() {
+  return ALL.filter(p =>
+    (currentCat === 'all' || p.cat === currentCat) &&
+    (!currentType || p.type === currentType)
+  );
+}
+
+function renderCards(list) {
+  return list.map(p => `
+    <a href="#" class="prod-card">
+      <div class="prod-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'">
+        ${p.badge ? `<div class="prod-badge ${p.badgeType}">${p.badge}</div>` : ''}
+        <button class="prod-wish" onclick="event.preventDefault();this.classList.toggle('active');this.textContent=this.classList.contains('active')?'♥':'♡'">♡</button>
+      </div>
+      <div class="prod-cat">${p.sub}</div>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-price">${p.price}${p.orig?`<del>${p.orig}</del>`:''}</div>
+    </a>
+  `).join('');
+}
+
+function loadMore() {
+  const filtered = getFiltered();
+  const slice = filtered.slice(page * perPage, (page + 1) * perPage);
+  const grid = document.getElementById('prodGrid');
+  if (page === 0) grid.innerHTML = '';
+  grid.innerHTML += renderCards(slice);
+  document.getElementById('countNum').textContent = Math.min((page + 1) * perPage, filtered.length);
+  page++;
+  document.getElementById('loadBtn').disabled = page * perPage >= filtered.length;
+}
+
+// Filter pills
+document.querySelectorAll('.pill[data-cat]').forEach(p => p.addEventListener('click', () => {
+  document.querySelectorAll('.pill[data-cat]').forEach(x => x.classList.remove('active'));
+  p.classList.add('active');
+  currentCat = p.dataset.cat;
+  page = 0;
+  loadMore();
+}));
+document.querySelectorAll('.pill[data-type]').forEach(p => p.addEventListener('click', () => {
+  const wasActive = p.classList.contains('active');
+  document.querySelectorAll('.pill[data-type]').forEach(x => x.classList.remove('active'));
+  if (!wasActive) { p.classList.add('active'); currentType = p.dataset.type; }
+  else currentType = '';
+  page = 0;
+  loadMore();
+}));
+
+document.getElementById('loadBtn').addEventListener('click', loadMore);
+loadMore();
+</script>
+</body>
+</html>
