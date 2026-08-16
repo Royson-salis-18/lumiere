@@ -21,21 +21,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* EDITORIAL OVERLAP SHOWCASE */}
-        <div className="hero-overlap">
-          <div className="ho-img-main">
+        {/* REFINED BENTO SHOWCASE */}
+        <div className="hero-gallery">
+          <div className="hero-gallery-main">
             <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Model wearing luxury jewellery" />
           </div>
-          <div className="ho-img-tl">
-            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond ring close up" />
-          </div>
-          <div className="ho-img-br">
-            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Gold bangles" />
-            
-            <div className="hero-float-badge">
-              <div className="hfb-label">Featured</div>
-              <div className="hfb-name">The Viraaz Set</div>
-              <div className="hfb-price">Discover &rarr;</div>
+          <div className="hero-gallery-sub">
+            <div className="hero-gallery-sub-img">
+              <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond ring close up" />
+            </div>
+            <div className="hero-gallery-sub-img">
+              <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Gold bangles" />
+              <div className="hero-float-badge">
+                <span className="hfb-label">Featured</span>
+                <span className="hfb-name">The Viraaz Set</span>
+                <span className="hfb-price">Discover &rarr;</span>
+              </div>
             </div>
           </div>
         </div>
