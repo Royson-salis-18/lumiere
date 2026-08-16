@@ -172,7 +172,9 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .hero {
   display: grid;
   grid-template-columns: 55% 45%;
-  min-height: max(calc(100vh - 92px), 760px);
+  height: calc(100vh - 92px);
+  max-height: 860px;
+  min-height: 640px;
   overflow: hidden;
 }
 
@@ -181,7 +183,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 48px 70px 48px 80px;
+  padding: 50px 70px 40px 80px;
   background: var(--cream);
   position: relative;
   overflow: hidden;
@@ -202,7 +204,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 }
 
 .hero-eyebrow {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 .hero-issue {
   font-size: .6rem;
@@ -215,11 +217,11 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 
 .hero-headline {
   font-family: var(--ff-serif);
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: clamp(3rem, 4.5vw, 4.5rem);
   font-weight: 300;
   line-height: 1.06;
   color: var(--black);
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   letter-spacing: -.01em;
 }
 .hero-headline .block {
@@ -235,7 +237,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
   color: var(--mid);
   line-height: 1.85;
   max-width: 380px;
-  margin-bottom: 44px;
+  margin-bottom: 36px;
   font-weight: 300;
 }
 
@@ -278,10 +280,10 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .btn-text:hover { color: var(--gold); border-color: var(--gold); }
 
 .hero-meta {
-  margin-top: 60px;
+  margin-top: auto;
   display: flex;
   gap: 40px;
-  padding-top: 40px;
+  padding-top: 30px;
   border-top: 1px solid var(--border);
 }
 .meta-item {}
@@ -304,7 +306,7 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 /* Right: stacked images */
 .hero-gallery {
   display: grid;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 60% 40%;
   gap: 0;
   position: relative;
   height: 100%;
