@@ -61,7 +61,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .f-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;font-weight:500;margin-right:4px}
 .pill{padding:7px 18px;border:1px solid var(--border);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:var(--mid);background:transparent;cursor:pointer;transition:all .22s;white-space:nowrap;border-radius:2px}
 .pill:hover,.pill.active{background:var(--black);color:var(--white);border-color:var(--black)}
-.pill.gold-active{background:var(--gold);color:var(--white);border-color:var(--gold)}
 
 /* RESULTS BAR */
 .results-bar{max-width:1440px;margin:0 auto;padding:24px 80px 0;display:flex;justify-content:space-between;align-items:center}
@@ -78,7 +77,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .prod-card:hover .prod-img img{transform:scale(1.06)}
 .prod-wish{position:absolute;top:12px;right:12px;width:34px;height:34px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .25s,color .25s;z-index:2;cursor:pointer;border:none;color:var(--muted)}
 .prod-wish:hover,.prod-wish.active{color:var(--rose);transform:scale(1.1)}
-.prod-badge{position:absolute;top:12px;left:12px;background:var(--black);color:var(--white);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;font-weight:600}
+.prod-badge{position:absolute;top:12px;left:12px;background:var(--black);color:var(--white);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;font-weight:600;border-radius:2px;}
 .prod-badge.gold-b{background:var(--gold)}
 .prod-badge.new-b{background:var(--rose)}
 .prod-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
@@ -91,6 +90,36 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .btn-load{display:inline-flex;align-items:center;gap:10px;padding:15px 48px;border:1.5px solid var(--black);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--black);background:transparent;cursor:pointer;transition:all .3s}
 .btn-load:hover{background:var(--black);color:var(--white)}
 .btn-load:disabled{opacity:.4;cursor:not-allowed}
+
+/* OVERLAYS */
+.overlay-bg{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:900;opacity:0;pointer-events:none;transition:opacity 0.4s;backdrop-filter:blur(4px);}
+.overlay-bg.active{opacity:1;pointer-events:auto;}
+
+.search-panel{position:fixed;top:0;left:0;right:0;background:var(--white);z-index:950;transform:translateY(-100%);transition:transform 0.5s var(--ease);padding:60px 80px;box-shadow:0 20px 40px rgba(0,0,0,0.1);}
+.search-panel.active{transform:translateY(0);}
+.search-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;}
+.search-input{width:100%;border:none;border-bottom:2px solid var(--black);font-family:var(--ff-serif);font-size:3rem;padding-bottom:10px;outline:none;color:var(--black);}
+.search-input::placeholder{color:var(--muted);font-weight:300;}
+.search-close{font-size:2.5rem;color:var(--black);cursor:pointer;background:none;border:none;padding:10px 0 10px 30px;line-height:1;}
+.trending-searches{display:flex;gap:16px;margin-top:24px;align-items:center;}
+.trending-searches span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);font-weight:500;}
+.trending-searches a{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--black);text-decoration:underline;cursor:pointer;transition:color .25s;}
+.trending-searches a:hover{color:var(--gold);}
+
+.wishlist-panel{position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100%;background:var(--white);z-index:950;transform:translateX(100%);transition:transform 0.5s var(--ease);display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,0.1);}
+.wishlist-panel.active{transform:translateX(0);}
+.wishlist-header{padding:30px 40px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+.wishlist-header h3{font-family:var(--ff-serif);font-size:1.8rem;font-weight:400;color:var(--black);}
+.wishlist-close{font-size:2rem;cursor:pointer;border:none;background:none;color:var(--black);line-height:1;}
+.wishlist-items{flex:1;overflow-y:auto;padding:20px 40px;}
+.wishlist-empty{text-align:center;padding-top:60px;color:var(--mid);font-weight:300;}
+.wishlist-item{display:flex;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.wishlist-item-img{width:80px;height:100px;object-fit:cover;border-radius:30px 30px 0 0;}
+.wishlist-item-details{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.wishlist-item-cat{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.wishlist-item-name{font-family:var(--ff-serif);font-size:1.1rem;color:var(--black);margin-bottom:6px;line-height:1.2;}
+.wishlist-item-price{font-size:.8rem;font-weight:500;color:var(--charcoal);}
+.wishlist-item-remove{font-size:.65rem;color:var(--rose);text-transform:uppercase;letter-spacing:.1em;margin-top:12px;cursor:pointer;border:none;background:none;display:inline-block;text-align:left;}
 
 /* FOOTER */
 footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:64px 80px 36px}
@@ -111,7 +140,9 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
 @media(max-width:768px){
   .nav-inner{padding:0 24px}.filter-section{padding:0 24px}.results-bar,.prod-section{padding-left:24px;padding-right:24px}
   .page-hero{padding:60px 24px 40px}.prod-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .foot-grid{grid-template-columns:1fr;gap:30px}.footer{padding:50px 24px 28px}
+  .foot-grid{grid-template-columns:1fr;gap:30px}
+  .search-panel{padding:40px 24px;}.search-input{font-size:2rem;}
+  .wishlist-panel{width:100%;}
 }
 </style>
 </head>
@@ -122,15 +153,15 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
   <div class="nav-inner">
     <a href="index.html" class="brand">LUMIÈRE<sup>®</sup></a>
     <nav><ul class="nav-links">
-      <li><a href="collections.html" class="active">Collections</a></li>
-      <li><a href="collections.html">Gold</a></li>
-      <li><a href="collections.html">Diamond</a></li>
-      <li><a href="collections.html">Bridal</a></li>
+      <li><a href="collections.html" class="nav-cat-link" data-href="all">Collections</a></li>
+      <li><a href="collections.html?cat=gold" class="nav-cat-link" data-href="gold">Gold</a></li>
+      <li><a href="collections.html?cat=diamond" class="nav-cat-link" data-href="diamond">Diamond</a></li>
+      <li><a href="collections.html?cat=bridal" class="nav-cat-link" data-href="bridal">Bridal</a></li>
       <li><a href="about.html">Atelier</a></li>
     </ul></nav>
     <div class="nav-actions">
-      <button>Search</button>
-      <button>Wishlist</button>
+      <button id="navSearch">Search</button>
+      <button id="navWishlist">Wishlist</button>
       <a href="contact.html" class="nav-cta">Book a Visit</a>
     </div>
   </div>
@@ -163,12 +194,6 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
       <button class="pill" data-type="bangles">Bangles</button>
       <button class="pill" data-type="pendants">Pendants</button>
     </div>
-    <div class="f-group">
-      <span class="f-label">Price</span>
-      <button class="pill" data-price="u50">Under ₹50K</button>
-      <button class="pill" data-price="u1l">₹50K – ₹1L</button>
-      <button class="pill" data-price="a1l">Above ₹1L</button>
-    </div>
   </div>
 </div>
 
@@ -191,6 +216,32 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
   <button class="btn-load" id="loadBtn">Load More Pieces</button>
 </div>
 
+<!-- OVERLAYS -->
+<div class="overlay-bg" id="overlayBg"></div>
+
+<div class="search-panel" id="searchPanel">
+  <div class="search-header">
+    <input type="text" class="search-input" placeholder="Search for jewellery..." id="searchInput">
+    <button class="search-close" id="closeSearch">&times;</button>
+  </div>
+  <div class="trending-searches">
+    <span>Trending:</span>
+    <a href="collections.html?cat=bridal">Bridal Sets</a>
+    <a href="collections.html?cat=diamond">Solitaire Rings</a>
+    <a href="collections.html?cat=gold">Gold Bangles</a>
+  </div>
+</div>
+
+<div class="wishlist-panel" id="wishlistPanel">
+  <div class="wishlist-header">
+    <h3>Your Wishlist</h3>
+    <button class="wishlist-close" id="closeWishlist">&times;</button>
+  </div>
+  <div class="wishlist-items" id="wishlistContainer">
+    <div class="wishlist-empty">Your wishlist is currently empty.</div>
+  </div>
+</div>
+
 <footer>
   <div class="foot-grid">
     <div>
@@ -199,22 +250,19 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
     </div>
     <div class="foot-col"><h5>Collections</h5><ul>
       <li><a href="collections.html">All Jewellery</a></li>
-      <li><a href="collections.html">Gold</a></li>
-      <li><a href="collections.html">Diamond</a></li>
-      <li><a href="collections.html">Gemstone</a></li>
-      <li><a href="collections.html">Bridal</a></li>
+      <li><a href="collections.html?cat=gold">Gold</a></li>
+      <li><a href="collections.html?cat=diamond">Diamond</a></li>
+      <li><a href="collections.html?cat=gemstone">Gemstone</a></li>
+      <li><a href="collections.html?cat=bridal">Bridal</a></li>
     </ul></div>
     <div class="foot-col"><h5>Company</h5><ul>
       <li><a href="about.html">Our Atelier</a></li>
       <li><a href="about.html">Craftsmanship</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="#">Store Locator</a></li>
     </ul></div>
     <div class="foot-col"><h5>Client Care</h5><ul>
       <li><a href="contact.html">Book a Visit</a></li>
-      <li><a href="#">Jewellery Care</a></li>
       <li><a href="#">Returns Policy</a></li>
-      <li><a href="#">Shipping Info</a></li>
       <li><a href="#">Size Guide</a></li>
     </ul></div>
   </div>
@@ -227,6 +275,81 @@ footer{background:var(--off-black, #1a1714);color:rgba(255,255,255,.45);padding:
 </footer>
 
 <script>
+// ── Global Overlay Logic ──
+const overlayBg = document.getElementById('overlayBg');
+const searchPanel = document.getElementById('searchPanel');
+const wishlistPanel = document.getElementById('wishlistPanel');
+const searchInput = document.getElementById('searchInput');
+
+document.getElementById('navSearch').addEventListener('click', () => { 
+  searchPanel.classList.add('active'); 
+  overlayBg.classList.add('active'); 
+  setTimeout(()=>searchInput.focus(), 100);
+});
+document.getElementById('navWishlist').addEventListener('click', () => { 
+  renderWishlistSidebar(); 
+  wishlistPanel.classList.add('active'); 
+  overlayBg.classList.add('active'); 
+});
+
+function closeOverlays() {
+  searchPanel.classList.remove('active');
+  wishlistPanel.classList.remove('active');
+  overlayBg.classList.remove('active');
+}
+[document.getElementById('closeSearch'), document.getElementById('closeWishlist'), overlayBg].forEach(el => {
+  el.addEventListener('click', closeOverlays);
+});
+
+// ── Wishlist Persistence Logic ──
+function getWishlist() { return JSON.parse(localStorage.getItem('lumiere_wishlist') || '[]'); }
+function saveWishlist(w) { localStorage.setItem('lumiere_wishlist', JSON.stringify(w)); }
+function isInWishlist(name) { return getWishlist().some(x => x.name === name); }
+
+window.toggleWishlist = function(idx, btn) {
+  const item = getFiltered()[idx];
+  let w = getWishlist();
+  const existingIdx = w.findIndex(x => x.name === item.name);
+  if(existingIdx > -1) {
+    w.splice(existingIdx, 1);
+    btn.classList.remove('active');
+    btn.textContent = '♡';
+  } else {
+    w.push(item);
+    btn.classList.add('active');
+    btn.textContent = '♥';
+  }
+  saveWishlist(w);
+};
+
+window.removeWishlistItem = function(name) {
+  let w = getWishlist();
+  w = w.filter(x => x.name !== name);
+  saveWishlist(w);
+  renderWishlistSidebar();
+  loadMore(true); // Re-render grid to update hearts
+};
+
+function renderWishlistSidebar() {
+  const w = getWishlist();
+  const container = document.getElementById('wishlistContainer');
+  if(w.length === 0) {
+    container.innerHTML = '<div class="wishlist-empty">Your wishlist is currently empty.</div>';
+    return;
+  }
+  container.innerHTML = w.map((p) => `
+    <div class="wishlist-item">
+      <img src="${p.img}" class="wishlist-item-img">
+      <div class="wishlist-item-details">
+        <div class="wishlist-item-cat">${p.type || p.cat}</div>
+        <div class="wishlist-item-name">${p.name}</div>
+        <div class="wishlist-item-price">${p.price}</div>
+        <button class="wishlist-item-remove" onclick="removeWishlistItem('${p.name.replace(/'/g, "\\'")}')">Remove</button>
+      </div>
+    </div>
+  `).join('');
+}
+
 // ── Real product data from Tanishq & Malabar Gold ──
 const ALL = [
   // RINGS (Gold)
@@ -273,6 +396,31 @@ const ALL = [
 
 let displayed = [], currentCat = 'all', currentType = '', page = 0, perPage = 12;
 
+// ── URL PARAMETER ROUTING ──
+const urlParams = new URLSearchParams(window.location.search);
+const catParam = urlParams.get('cat');
+if(catParam) {
+  currentCat = catParam;
+  const titleMap = {
+    'gold': ['The Gold', 'Collection', 'Pure 22K BIS Hallmarked gold jewellery.'],
+    'diamond': ['The Diamond', 'Collection', 'GIA certified conflict-free diamond pieces.'],
+    'bridal': ['The Bridal', 'Trousseau', 'Exquisite sets for your most special day.'],
+    'gemstone': ['Rare Gemstone', 'Collection', 'Vibrant ethically sourced stones.']
+  };
+  if(titleMap[catParam]) {
+    document.querySelector('.page-title').innerHTML = `${titleMap[catParam][0]}<br><em>${titleMap[catParam][1]}</em>`;
+    document.querySelector('.page-sub').textContent = titleMap[catParam][2];
+  }
+  document.querySelectorAll('.nav-cat-link').forEach(x => x.classList.remove('active'));
+  const activeLink = document.querySelector(`.nav-cat-link[data-href="${catParam}"]`);
+  if(activeLink) activeLink.classList.add('active');
+  
+  // Need to wait for DOM to load fully before messing with pills, but we are at end of body.
+  document.querySelectorAll('.pill[data-cat]').forEach(x => x.classList.remove('active'));
+  const activePill = document.querySelector(`.pill[data-cat="${catParam}"]`);
+  if(activePill) activePill.classList.add('active');
+}
+
 function getFiltered() {
   return ALL.filter(p =>
     (currentCat === 'all' || p.cat === currentCat) &&
@@ -280,30 +428,33 @@ function getFiltered() {
   );
 }
 
-function renderCards(list) {
-  return list.map(p => `
-    <a href="#" class="prod-card">
+function renderCards(list, startIndex) {
+  return list.map((p, i) => {
+    const isWished = isInWishlist(p.name);
+    return `
+    <a href="#" class="prod-card" onclick="event.preventDefault()">
       <div class="prod-img">
         <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'">
         ${p.badge ? `<div class="prod-badge ${p.badgeType}">${p.badge}</div>` : ''}
-        <button class="prod-wish" onclick="event.preventDefault();this.classList.toggle('active');this.textContent=this.classList.contains('active')?'♥':'♡'">♡</button>
+        <button class="prod-wish ${isWished?'active':''}" onclick="event.preventDefault(); window.toggleWishlist(${startIndex + i}, this)">${isWished?'♥':'♡'}</button>
       </div>
       <div class="prod-cat">${p.sub}</div>
       <div class="prod-name">${p.name}</div>
       <div class="prod-price">${p.price}${p.orig?`<del>${p.orig}</del>`:''}</div>
     </a>
-  `).join('');
+  `}).join('');
 }
 
-function loadMore() {
+function loadMore(forceReset = false) {
+  if(forceReset) page = 0;
   const filtered = getFiltered();
   const slice = filtered.slice(page * perPage, (page + 1) * perPage);
   const grid = document.getElementById('prodGrid');
   if (page === 0) grid.innerHTML = '';
-  grid.innerHTML += renderCards(slice);
+  grid.innerHTML += renderCards(slice, page * perPage);
   document.getElementById('countNum').textContent = Math.min((page + 1) * perPage, filtered.length);
-  page++;
-  document.getElementById('loadBtn').disabled = page * perPage >= filtered.length;
+  if(!forceReset) page++;
+  document.getElementById('loadBtn').disabled = (page === 0 ? 1 : page) * perPage >= filtered.length;
 }
 
 // Filter pills
@@ -311,20 +462,25 @@ document.querySelectorAll('.pill[data-cat]').forEach(p => p.addEventListener('cl
   document.querySelectorAll('.pill[data-cat]').forEach(x => x.classList.remove('active'));
   p.classList.add('active');
   currentCat = p.dataset.cat;
-  page = 0;
-  loadMore();
+  
+  // Update URL silently so refresh keeps state
+  const url = new URL(window.location);
+  if(currentCat === 'all') url.searchParams.delete('cat');
+  else url.searchParams.set('cat', currentCat);
+  window.history.replaceState({}, '', url);
+
+  loadMore(true);
 }));
 document.querySelectorAll('.pill[data-type]').forEach(p => p.addEventListener('click', () => {
   const wasActive = p.classList.contains('active');
   document.querySelectorAll('.pill[data-type]').forEach(x => x.classList.remove('active'));
   if (!wasActive) { p.classList.add('active'); currentType = p.dataset.type; }
   else currentType = '';
-  page = 0;
-  loadMore();
+  loadMore(true);
 }));
 
-document.getElementById('loadBtn').addEventListener('click', loadMore);
-loadMore();
+document.getElementById('loadBtn').addEventListener('click', () => loadMore(false));
+loadMore(true);
 </script>
 </body>
 </html>
