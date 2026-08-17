@@ -101,7 +101,7 @@ export default function Collections({ toggleWishlist, getWishlist }) {
         </div>
       )}
 
-      <div className="filter-section">
+      <div className="filter-section" id="collections-grid">
         <div className="filter-inner">
           <div className="f-group">
             <span className="f-label">Category</span>
