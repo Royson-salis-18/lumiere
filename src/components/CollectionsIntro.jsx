@@ -371,46 +371,46 @@ export default function CollectionsIntro() {
   };
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: 'calc(100vh - 98px)', overflow: 'hidden', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 5, pointerEvents: 'none', background: 'radial-gradient(circle, transparent 40%, var(--cream) 100%)' }}></div>
+    <div style={{ position: 'relative', width: '100%', minHeight: 'calc(100vh - 98px)', overflow: 'hidden', background: 'var(--black)', borderBottom: '1px solid var(--border)' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 5, pointerEvents: 'none', background: 'radial-gradient(circle, transparent 40%, var(--black) 100%)' }}></div>
       <div ref={containerRef} style={{ position: 'absolute', inset: 0, cursor: 'grab' }}></div>
       
       <div style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
         <div style={{
-          background: 'rgba(255, 255, 255, 0.4)',
+          background: 'var(--glass-bg)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           padding: '60px 80px',
           borderRadius: '24px',
-          border: '1px solid rgba(255, 255, 255, 0.5)',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.05)',
+          border: '1px solid var(--border)',
+          boxShadow: '0 20px 40px var(--shadow)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           pointerEvents: 'auto'
         }}>
           <span className="label" style={{ marginBottom: 20 }}>The Collections</span>
-          <h1 className="hero-headline" style={{ textAlign: 'center', margin: 0, color: 'var(--charcoal)' }}>Curated For <em>You</em></h1>
+          <h1 className="hero-headline" style={{ textAlign: 'center', margin: 0, color: 'var(--white)' }}>Curated For <em>You</em></h1>
           
           <button 
             onClick={handleScrollDown}
             style={{
               marginTop: 40,
               padding: '16px 32px',
-              background: 'var(--charcoal)',
-              color: 'var(--white)',
+              background: 'var(--white)',
+              color: 'var(--black)',
               border: 'none',
-              borderRadius: '30px',
+              borderRadius: 'var(--radius-pill)',
               fontFamily: 'var(--ff-sans)',
               fontSize: '0.75rem',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               cursor: 'pointer',
               transition: 'all 0.3s var(--ease)',
-              boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
+              boxShadow: '0 10px 20px var(--shadow)'
             }}
-            onMouseOver={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseOut={(e) => { e.currentTarget.style.background = 'var(--charcoal)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            onMouseOver={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+            onMouseOut={(e) => { e.currentTarget.style.background = 'var(--white)'; e.currentTarget.style.color = 'var(--black)'; e.currentTarget.style.transform = 'translateY(0)'; }}
           >
             Explore Collections ↓
           </button>
