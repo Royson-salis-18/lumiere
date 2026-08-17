@@ -45,11 +45,11 @@ const ALL = [
 ];
 
 const titleMap = {
-  'gold': ['The Gold', 'Collection', 'Pure 22K BIS Hallmarked gold jewellery.'],
-  'diamond': ['The Diamond', 'Collection', 'GIA certified conflict-free diamond pieces.'],
-  'bridal': ['The Bridal', 'Trousseau', 'Exquisite sets for your most special day.'],
-  'gemstone': ['Rare Gemstone', 'Collection', 'Vibrant ethically sourced stones.'],
-  'all': ['The Complete', 'Collection', 'Gold, Diamond, Gemstone & Bridal — curated from the finest artisan workshops across India.']
+  'gold': ['The Gold', 'Collection', 'Pure 22K BIS Hallmarked gold jewellery.', 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85&auto=format&fit=crop'],
+  'diamond': ['The Diamond', 'Collection', 'GIA certified conflict-free diamond pieces.', 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=85&auto=format&fit=crop'],
+  'bridal': ['The Bridal', 'Trousseau', 'Exquisite sets for your most special day.', 'https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=900&q=85&auto=format&fit=crop'],
+  'gemstone': ['Rare Gemstone', 'Collection', 'Vibrant ethically sourced stones.', 'https://images.unsplash.com/photo-1602751584552-8ba73aad10ee?w=900&q=85&auto=format&fit=crop'],
+  'all': ['The Complete', 'Collection', 'Gold, Diamond, Gemstone & Bridal — curated from the finest artisan workshops across India.', 'https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=900&q=85&auto=format&fit=crop']
 };
 
 export default function Collections({ toggleWishlist, getWishlist }) {
@@ -83,11 +83,16 @@ export default function Collections({ toggleWishlist, getWishlist }) {
     <main>
       <div className="page-hero">
         <div className="page-hero-inner">
-          <span className="label">500+ Designs</span>
-          <h1 className="page-title">
-            {header[0]}<br /><em>{header[1]}</em>
-          </h1>
-          <p className="page-sub">{header[2]}</p>
+          <div className="page-hero-text">
+            <span className="label">500+ Designs</span>
+            <h1 className="page-title">
+              {header[0]}<br /><em>{header[1]}</em>
+            </h1>
+            <p className="page-sub">{header[2]}</p>
+          </div>
+          <div className="page-hero-img">
+            <img src={header[3]} alt={header[0]} loading="eager" />
+          </div>
         </div>
       </div>
 

@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Collections from './pages/Collections';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [wishlist, setWishlist] = useState(() => {
     const saved = localStorage.getItem('lumiere_wishlist');
     return saved ? JSON.parse(saved) : [];
@@ -33,28 +42,34 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       {/* TOPBAR */}
       <div className="topbar">
-        NEW ARRIVAL: <b>THE SOLEIL COLLECTION</b> — HANDCRAFTED GOLD & DIAMOND.
-        <span style={{margin: '0 12px'}}>·</span>
-        FREE SHIPPING ON ORDERS ABOVE ₹25,000
+        <span>NEW ARRIVAL: <b>THE SOLEIL COLLECTION</b></span>
+        <span className="hide-mob" style={{margin: '0 12px'}}>·</span>
+        <span className="hide-mob">FREE SHIPPING ON ORDERS ABOVE ₹25,000</span>
       </div>
 
       {/* NAVBAR */}
       <div className="nav-wrap">
         <nav className="nav-inner">
-          <Link to="/" className="nav-brand">LUMIÈRE<span className="brand-dot">®</span></Link>
-          <div className="nav-links">
-            <Link to="/collections">Collections</Link>
-            <Link to="/collections?cat=gold">Gold</Link>
-            <Link to="/collections?cat=diamond">Diamond</Link>
-            <Link to="/collections?cat=bridal">Bridal</Link>
-            <Link to="/about">Atelier</Link>
+          <Link to="/" className="nav-brand" onClick={() => setMenuOpen(false)}>LUMIÈRE<span className="brand-dot">®</span></Link>
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <Link to="/collections" onClick={() => setMenuOpen(false)}>Collections</Link>
+            <Link to="/collections?cat=gold" onClick={() => setMenuOpen(false)}>Gold</Link>
+            <Link to="/collections?cat=diamond" onClick={() => setMenuOpen(false)}>Diamond</Link>
+            <Link to="/collections?cat=bridal" onClick={() => setMenuOpen(false)}>Bridal</Link>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>Atelier</Link>
           </div>
           <div className="nav-icons">
             <button onClick={() => setSearchOpen(true)}>Search</button>
             <button onClick={() => setWishlistOpen(true)}>Wishlist ({wishlist.length})</button>
             <Link to="/contact" className="nav-cta">Book a Visit</Link>
+            <button className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </button>
           </div>
         </nav>
       </div>
@@ -107,6 +122,33 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+
+      {/* FOOTER */}
+      <footer>
+        <div className="foot-grid">
+          <div><span className="foot-brand-name">LUMIÈRE</span><p className="foot-text">A legacy of elegance. Each piece is a testament to the timeless pursuit of beauty and the skilled hands that create it.</p></div>
+          <div className="foot-col"><h5>Collections</h5><ul>
+            <li><Link to="/collections">All Jewellery</Link></li>
+            <li><Link to="/collections?cat=gold">Gold</Link></li>
+            <li><Link to="/collections?cat=diamond">Diamond</Link></li>
+            <li><Link to="/collections?cat=bridal">Bridal</Link></li>
+          </ul></div>
+          <div className="foot-col"><h5>Company</h5><ul>
+            <li><Link to="/about">Our Atelier</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="#">Store Locator</Link></li>
+          </ul></div>
+          <div className="foot-col"><h5>Client Care</h5><ul>
+            <li><Link to="/contact">Book a Visit</Link></li>
+            <li><Link to="#">Returns Policy</Link></li>
+            <li><Link to="#">Size Guide</Link></li>
+          </ul></div>
+        </div>
+        <div className="foot-bottom">
+          <span>&copy; 2026 Lumière Fine Jewellery. All rights reserved.</span>
+          <div className="foot-btm-links"><Link to="#">Privacy Policy</Link><Link to="#">Terms of Service</Link></div>
+        </div>
+      </footer>
 
     </BrowserRouter>
   );

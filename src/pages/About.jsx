@@ -60,16 +60,25 @@ export default function About() {
         </div>
         <div className="values-grid">
           <div className="value-card">
+            <div className="value-img">
+              <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Pure Gold" />
+            </div>
             <div className="value-num">01</div>
             <div className="value-title">BIS 916 Hallmarked Gold</div>
             <div className="value-desc">Every piece is certified for purity under India's Bureau of Indian Standards. We use only 22K (916) and 18K gold — never an ounce less.</div>
           </div>
           <div className="value-card">
+            <div className="value-img">
+              <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Conflict Free Diamonds" />
+            </div>
             <div className="value-num">02</div>
             <div className="value-title">Conflict-Free Diamonds</div>
             <div className="value-desc">All our diamonds are GIA-certified and sourced under the Kimberley Process. Brilliance with a clear conscience — always.</div>
           </div>
           <div className="value-card">
+            <div className="value-img">
+              <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop" alt="Lifetime Exchange" />
+            </div>
             <div className="value-num">03</div>
             <div className="value-title">Lifetime Exchange</div>
             <div className="value-desc">Your legacy shouldn't be locked away. We offer 100% exchange value on gold and 90% on diamonds, at any point in the future.</div>
@@ -84,32 +93,6 @@ export default function About() {
         <Link to="/contact" className="btn-gold">Book a Consultation</Link>
       </div>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="foot-grid">
-          <div><span className="foot-brand-name">LUMIÈRE</span><p className="foot-text">A legacy of elegance. Each piece is a testament to the timeless pursuit of beauty and the skilled hands that create it.</p></div>
-          <div className="foot-col"><h5>Collections</h5><ul>
-            <li><Link to="/collections">All Jewellery</Link></li>
-            <li><Link to="/collections?cat=gold">Gold</Link></li>
-            <li><Link to="/collections?cat=diamond">Diamond</Link></li>
-            <li><Link to="/collections?cat=bridal">Bridal</Link></li>
-          </ul></div>
-          <div className="foot-col"><h5>Company</h5><ul>
-            <li><Link to="/about">Our Atelier</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="#">Store Locator</Link></li>
-          </ul></div>
-          <div className="foot-col"><h5>Client Care</h5><ul>
-            <li><Link to="/contact">Book a Visit</Link></li>
-            <li><Link to="#">Returns Policy</Link></li>
-            <li><Link to="#">Size Guide</Link></li>
-          </ul></div>
-        </div>
-        <div className="foot-bottom">
-          <span>&copy; 2026 Lumière Fine Jewellery. All rights reserved.</span>
-          <div className="foot-btm-links"><Link to="#">Privacy Policy</Link><Link to="#">Terms of Service</Link></div>
-        </div>
-      </footer>
     </main>
   );
 }

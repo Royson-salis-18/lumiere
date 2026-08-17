@@ -15,10 +15,19 @@ export default function Contact() {
   return (
     <main>
       {/* PAGE HERO */}
-      <div className="page-hero" style={{padding: '80px', borderBottom: '1px solid var(--border)'}}>
-        <span className="label">Get in Touch</span>
-        <h1 className="page-title" style={{marginTop: '12px'}}>Book Your<br/><em>Private Consultation</em></h1>
-        <p className="page-sub" style={{marginTop: '14px'}}>Whether you're looking for the perfect bridal set, an anniversary gift, or simply want to explore — our experts are here to guide you every step of the way.</p>
+      <div className="page-hero">
+        <div className="page-hero-inner">
+          <div className="page-hero-text">
+            <span className="label">Get in Touch</span>
+            <h1 className="page-title">
+              Book Your<br /><em>Private Consultation</em>
+            </h1>
+            <p className="page-sub">Whether you're looking for the perfect bridal set, an anniversary gift, or simply want to explore — our experts are here to guide you every step of the way.</p>
+          </div>
+          <div className="page-hero-img">
+            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Consultation" loading="eager" />
+          </div>
+        </div>
       </div>
 
       <div className="contact-grid">
@@ -123,32 +132,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* FOOTER */}
-      <footer>
-        <div className="foot-grid">
-          <div><span className="foot-brand-name">LUMIÈRE</span><p className="foot-text">A legacy of elegance. Each piece is a testament to the timeless pursuit of beauty and the skilled hands that create it.</p></div>
-          <div className="foot-col"><h5>Collections</h5><ul>
-            <li><Link to="/collections">All Jewellery</Link></li>
-            <li><Link to="/collections?cat=gold">Gold</Link></li>
-            <li><Link to="/collections?cat=diamond">Diamond</Link></li>
-            <li><Link to="/collections?cat=bridal">Bridal</Link></li>
-          </ul></div>
-          <div className="foot-col"><h5>Company</h5><ul>
-            <li><Link to="/about">Our Atelier</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="#">Store Locator</Link></li>
-          </ul></div>
-          <div className="foot-col"><h5>Client Care</h5><ul>
-            <li><Link to="/contact">Book a Visit</Link></li>
-            <li><Link to="#">Returns Policy</Link></li>
-            <li><Link to="#">Size Guide</Link></li>
-          </ul></div>
-        </div>
-        <div className="foot-bottom">
-          <span>&copy; 2026 Lumière Fine Jewellery. All rights reserved.</span>
-          <div className="foot-btm-links"><Link to="#">Privacy Policy</Link><Link to="#">Terms of Service</Link></div>
-        </div>
-      </footer>
     </main>
   );
 }
