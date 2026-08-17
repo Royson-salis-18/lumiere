@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import CollectionsIntro from '../components/CollectionsIntro';
 
 const ALL = [
   // RINGS (Gold)
@@ -81,20 +82,24 @@ export default function Collections({ toggleWishlist, getWishlist }) {
 
   return (
     <main>
-      <div className="page-hero">
-        <div className="page-hero-inner">
-          <div className="page-hero-text">
-            <span className="label">500+ Designs</span>
-            <h1 className="page-title">
-              {header[0]}<br /><em>{header[1]}</em>
-            </h1>
-            <p className="page-sub">{header[2]}</p>
-          </div>
-          <div className="page-hero-img">
-            <img src={header[3]} alt={header[0]} loading="eager" />
+      {currentCat === 'all' ? (
+        <CollectionsIntro />
+      ) : (
+        <div className="page-hero">
+          <div className="page-hero-inner">
+            <div className="page-hero-text">
+              <span className="label">500+ Designs</span>
+              <h1 className="page-title">
+                {header[0]}<br /><em>{header[1]}</em>
+              </h1>
+              <p className="page-sub">{header[2]}</p>
+            </div>
+            <div className="page-hero-img">
+              <img src={header[3]} alt={header[0]} loading="eager" />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="filter-section">
         <div className="filter-inner">
