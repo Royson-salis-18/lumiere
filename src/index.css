@@ -794,45 +794,46 @@ button { font-family:inherit; cursor:pointer; border:none; background:none; }
 .overlay-bg.active { opacity: 1; pointer-events: auto; }
 
 .search-panel {
-  position: fixed; top: 0; left: 0; right: 0; background: var(--black); z-index: 950;
+  position: fixed; top: 0; left: 0; right: 0; background: var(--cream); z-index: 950;
   transform: translateY(-100%); transition: transform 0.6s var(--ease); padding: 80px; border-bottom: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 .search-panel.active { transform: translateY(0); }
 .search-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
 .search-input {
-  width: 100%; border: none; border-bottom: 2px solid rgba(255,255,255,0.2); background: transparent;
-  font-family: var(--ff-serif); font-size: 4rem; padding-bottom: 15px; outline: none; color: var(--white); transition: border-color .3s;
+  width: 100%; border: none; border-bottom: 2px solid rgba(0,0,0,0.1); background: transparent;
+  font-family: var(--ff-serif); font-size: 4rem; padding-bottom: 15px; outline: none; color: var(--charcoal); transition: border-color .3s;
 }
 .search-input:focus { border-color: var(--gold); }
-.search-input::placeholder { color: rgba(255,255,255,0.2); font-weight: 300; }
-.search-close { font-size: 3rem; color: var(--white); cursor: pointer; padding: 10px 0 10px 40px; line-height: 1; opacity: 0.5; transition: opacity .3s; }
-.search-close:hover { opacity: 1; }
+.search-input::placeholder { color: rgba(0,0,0,0.2); font-weight: 300; }
+.search-close { font-size: 3rem; color: var(--charcoal); cursor: pointer; padding: 10px 0 10px 40px; line-height: 1; opacity: 0.5; transition: opacity .3s; }
+.search-close:hover { opacity: 1; color: var(--gold); }
 .trending-searches { display: flex; gap: 20px; align-items: center; }
-.trending-searches span { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; }
-.trending-searches a { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--white); text-decoration: none; cursor: pointer; transition: color .3s; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;}
+.trending-searches span { font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.trending-searches a { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; cursor: pointer; transition: color .3s; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 2px;}
 .trending-searches a:hover { color: var(--gold); border-color: var(--gold); }
 
 .wishlist-panel {
   position: fixed; top: 0; right: 0; bottom: 0; width: 480px; max-width: 100%;
-  background: var(--off-black); z-index: 950; transform: translateX(100%);
+  background: var(--white); z-index: 950; transform: translateX(100%);
   transition: transform 0.6s var(--ease); display: flex; flex-direction: column;
-  box-shadow: -20px 0 50px rgba(0,0,0,0.5); border-left: 1px solid var(--border);
+  box-shadow: -20px 0 50px rgba(0,0,0,0.08); border-left: 1px solid rgba(212, 175, 55, 0.2);
 }
 .wishlist-panel.active { transform: translateX(0); }
-.wishlist-header { padding: 40px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-.wishlist-header h3 { font-family: var(--ff-serif); font-size: 2.2rem; font-weight: 300; color: var(--white); }
-.wishlist-close { font-size: 2.5rem; cursor: pointer; color: var(--white); line-height: 1; opacity: 0.5; transition: opacity .3s; }
-.wishlist-close:hover { opacity: 1; }
+.wishlist-header { padding: 40px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); display: flex; justify-content: space-between; align-items: center; background: var(--cream); }
+.wishlist-header h3 { font-family: var(--ff-serif); font-size: 2.2rem; font-weight: 400; color: var(--charcoal); }
+.wishlist-close { font-size: 2.5rem; cursor: pointer; color: var(--charcoal); line-height: 1; opacity: 0.5; transition: opacity .3s; }
+.wishlist-close:hover { opacity: 1; color: var(--gold); }
 .wishlist-items { flex: 1; overflow-y: auto; padding: 20px 40px; }
-.wishlist-empty { text-align: center; padding-top: 80px; color: rgba(255,255,255,0.4); font-weight: 300; font-size: 1.1rem; }
-.wishlist-item { display: flex; gap: 24px; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
-.wishlist-item-img { width: 100px; height: 120px; object-fit: cover; border-radius: 12px; }
+.wishlist-empty { text-align: center; padding-top: 80px; color: var(--charcoal); opacity: 0.6; font-weight: 400; font-size: 1.1rem; }
+.wishlist-item { display: flex; gap: 24px; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.wishlist-item-img { width: 100px; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
 .wishlist-item-details { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.wishlist-item-cat { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
-.wishlist-item-name { font-family: var(--ff-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
-.wishlist-item-price { font-size: .9rem; font-weight: 500; color: var(--gold-lt); }
+.wishlist-item-cat { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+.wishlist-item-name { font-family: var(--ff-serif); font-size: 1.3rem; color: var(--charcoal); margin-bottom: 10px; line-height: 1.2; font-weight: 500; }
+.wishlist-item-price { font-size: .9rem; font-weight: 600; color: var(--gold); }
 .wishlist-item-remove { font-size: .65rem; color: var(--rose); text-transform: uppercase; letter-spacing: .15em; margin-top: 16px; cursor: pointer; opacity: 0.8; transition: opacity .3s; text-align: left; }
-.wishlist-item-remove:hover { opacity: 1; }
+.wishlist-item-remove:hover { opacity: 1; color: #d00000; }
 
 @media(max-width:1100px){ 
   .prod-grid{grid-template-columns:repeat(3,1fr)} 
