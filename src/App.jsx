@@ -17,6 +17,19 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [wishlistOpen, setWishlistOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('lumiere_theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('lumiere_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
   const [wishlist, setWishlist] = useState(() => {
     const saved = localStorage.getItem('lumiere_wishlist');
     return saved ? JSON.parse(saved) : [];
@@ -64,6 +77,9 @@ export default function App() {
           <div className="nav-icons">
             <button onClick={() => setSearchOpen(true)}>Search</button>
             <button onClick={() => setWishlistOpen(true)}>Wishlist ({wishlist.length})</button>
+            <button onClick={toggleTheme} aria-label="Toggle Theme" style={{ fontSize: '1rem', padding: '0 4px', background: 'transparent' }}>
+              {theme === 'light' ? '☾' : '☼'}
+            </button>
             <Link to="/contact" className="nav-cta">Book a Visit</Link>
             <button className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
               <span className="bar"></span>
