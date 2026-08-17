@@ -86,7 +86,7 @@ export default function Collections({ toggleWishlist, getWishlist }) {
         <CollectionsIntro />
       ) : (
         <div className="page-hero">
-          <div className="page-hero-inner">
+          <div className="page-hero-inner fade-in-up">
             <div className="page-hero-text">
               <span className="label">500+ Designs</span>
               <h1 className="page-title">
@@ -150,7 +150,7 @@ export default function Collections({ toggleWishlist, getWishlist }) {
           {displayed.map((p, idx) => {
             const isWished = wishlist.some(x => x.name === p.name);
             return (
-              <div key={idx} className="prod-card">
+              <div key={idx} className="prod-card fade-in-up" style={{ animationDelay: `${(idx % 4) * 0.1}s` }}>
                 <div className="prod-img">
                   <img src={p.img} alt={p.name} loading="lazy" />
                   {p.badge && <div className={`prod-badge ${p.badgeType}`}>{p.badge}</div>}

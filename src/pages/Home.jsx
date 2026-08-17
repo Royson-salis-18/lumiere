@@ -7,22 +7,22 @@ export default function Home() {
       {/* HERO SECTION */}
       <div className="hero">
         <div className="hero-panel">
-          <div className="label">Heritage Collection</div>
-          <h1 className="hero-headline">
+          <div className="label fade-in-up">Heritage Collection</div>
+          <h1 className="hero-headline fade-in-up delay-1">
             Where <em>Legacy</em><br />
             Meets Brilliance.
           </h1>
-          <p className="hero-sub">
+          <p className="hero-sub fade-in-up delay-2">
             Discover our curated selection of fine gold, rare diamonds, and ethically sourced gemstones, handcrafted in India since 1924.
           </p>
-          <div className="hero-actions">
+          <div className="hero-actions fade-in-up delay-3">
             <Link to="/collections" className="btn-solid">Explore the Collection</Link>
             <Link to="/about" className="btn-outline">Our Atelier</Link>
           </div>
         </div>
 
         {/* REFINED COLLAGE SHOWCASE */}
-        <div className="hero-gallery">
+        <div className="hero-gallery fade-in-up delay-2">
           <div className="collage-wrap">
             <div className="hero-gallery-main">
               <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Model wearing luxury jewellery" />
@@ -64,10 +64,10 @@ export default function Home() {
       <div className="marquee">
         <div className="marquee-track">
           {[...Array(6)].map((_, i) => (
-            <span key={i}>
-              CRAFTED IN INDIA <span className="dot">·</span> 
-              ETHICALLY SOURCED <span className="dot">·</span> 
-              LIFETIME EXCHANGE <span className="dot">·</span>
+            <span key={i} className="marquee-item">
+              CRAFTED IN INDIA <span className="marquee-dot">·</span> 
+              ETHICALLY SOURCED <span className="marquee-dot">·</span> 
+              LIFETIME EXCHANGE <span className="marquee-dot">·</span>
             </span>
           ))}
         </div>
@@ -76,26 +76,26 @@ export default function Home() {
       {/* SCROLLABLE HOME: FEATURED CATEGORIES */}
       <section className="home-cats">
         <div className="home-cats-inner">
-          <div className="hc-header">
+          <div className="hc-header fade-in-up">
             <div className="label">Curated For You</div>
             <h2 className="hc-title">Explore <em>Collections</em></h2>
           </div>
           <div className="hc-grid">
-            <Link to="/collections?cat=gold" className="hc-card">
+            <Link to="/collections?cat=gold" className="hc-card fade-in-up delay-1">
               <div className="hc-img">
                 <img src="https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop" alt="Pure 22K Gold" />
               </div>
               <h3 className="hc-name">22K Gold</h3>
               <span className="hc-link">Shop Gold &rarr;</span>
             </Link>
-            <Link to="/collections?cat=diamond" className="hc-card">
+            <Link to="/collections?cat=diamond" className="hc-card fade-in-up delay-2">
               <div className="hc-img">
                 <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="GIA Diamonds" />
               </div>
               <h3 className="hc-name">Diamonds</h3>
               <span className="hc-link">Shop Diamonds &rarr;</span>
             </Link>
-            <Link to="/collections?cat=bridal" className="hc-card">
+            <Link to="/collections?cat=bridal" className="hc-card fade-in-up delay-3">
               <div className="hc-img">
                 <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop" alt="Bridal Sets" />
               </div>
@@ -108,10 +108,10 @@ export default function Home() {
 
       {/* SCROLLABLE HOME: STORY TEASER */}
       <section className="home-story">
-        <div className="hs-img">
+        <div className="hs-img fade-in-up">
           <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85&auto=format&fit=crop" alt="Craftsmanship" />
         </div>
-        <div className="hs-text">
+        <div className="hs-text fade-in-up delay-1">
           <div className="label">Our Heritage</div>
           <h2 className="hc-title" style={{marginTop: '12px', marginBottom: '24px'}}>A Century of <em>Mastery</em></h2>
           <p className="hero-sub" style={{marginBottom: '32px'}}>
