@@ -409,7 +409,7 @@ export default function CollectionsIntro() {
               transition: 'all 0.3s var(--ease)',
               boxShadow: '0 10px 20px var(--shadow)'
             }}
-            onMouseOver={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+            onMouseOver={(e) => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
             onMouseOut={(e) => { e.currentTarget.style.background = 'var(--white)'; e.currentTarget.style.color = 'var(--black)'; e.currentTarget.style.transform = 'translateY(0)'; }}
           >
             Explore Collections ↓
@@ -417,7 +417,7 @@ export default function CollectionsIntro() {
         </div>
       </div>
 
-      <div ref={loadingRef} style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 20, color: 'var(--gold)', fontFamily: 'var(--ff-serif)', fontSize: '1.2rem', background: 'rgba(255,255,255,0.8)', padding: '12px 24px', borderRadius: 30, backdropFilter: 'blur(10px)' }}>
+      <div ref={loadingRef} style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 20, color: 'var(--accent)', fontFamily: 'var(--ff-serif)', fontSize: '1.2rem', background: 'rgba(255,255,255,0.8)', padding: '12px 24px', borderRadius: 30, backdropFilter: 'blur(10px)' }}>
         Loading Galleries...
       </div>
     </div>

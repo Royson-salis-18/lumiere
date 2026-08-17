@@ -4,7 +4,7 @@ import CollectionsIntro from '../components/CollectionsIntro';
 
 const ALL = [
   // RINGS (Gold)
-  {cat:'gold',type:'rings',badge:'Bestseller',badgeType:'gold-b',name:'Secret Garden Gold Ring',sub:'22K Gold · Rings',price:'₹40,525',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'rings',badge:'Bestseller',badgeType:'accent-b',name:'Secret Garden Gold Ring',sub:'22K Gold · Rings',price:'₹40,525',orig:'',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'rings',badge:'',badgeType:'',name:'Petal Poetry Gold Ring',sub:'22K Gold · Rings',price:'₹32,503',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
   {cat:'gemstone',type:'rings',badge:'New',badgeType:'new-b',name:'Twilight Petal Tourmaline Ring',sub:'Gemstone · Rings',price:'₹41,839',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'rings',badge:'',badgeType:'',name:'Blooming Drift Gold Ring',sub:'22K Gold · Rings',price:'₹33,420',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
@@ -12,7 +12,7 @@ const ALL = [
   // NECKLACES
   {cat:'gold',type:'necklaces',badge:'Only 1 Left',badgeType:'',name:'Velvet Blossom Gold Necklace Set',sub:'22K Gold · Necklace Set',price:'₹1,80,825',orig:'',img:'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'necklaces',badge:'',badgeType:'',name:'Roselight Lotus Gold Necklace',sub:'22K Gold · Necklaces',price:'₹1,65,038',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gemstone',type:'necklaces',badge:'Limited',badgeType:'gold-b',name:'Blossom Trail Tourmaline Pendant & Chain',sub:'Gemstone · Pendant Set',price:'₹1,09,470',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gemstone',type:'necklaces',badge:'Limited',badgeType:'accent-b',name:'Blossom Trail Tourmaline Pendant & Chain',sub:'Gemstone · Pendant Set',price:'₹1,09,470',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
 
   // EARRINGS
   {cat:'gold',type:'earrings',badge:'',badgeType:'',name:'Lotus Blush Gold Hoop Earrings',sub:'22K Gold · Earrings',price:'₹52,608',orig:'',img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop'},
@@ -22,22 +22,22 @@ const ALL = [
   {cat:'gold',type:'earrings',badge:'',badgeType:'',name:'Stunning Abstract Drop Earrings',sub:'22K Gold · Earrings',price:'₹83,623',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
 
   // BANGLES
-  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Rosette Dream Gold Bangle',sub:'22K Gold · Bangles',price:'₹1,02,681',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Peach Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹58,226',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Golden Exquisite Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹81,821',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'accent-b',name:'Rosette Dream Gold Bangle',sub:'22K Gold · Bangles',price:'₹1,02,681',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'accent-b',name:'Golden Peach Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹58,226',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gold',type:'bangles',badge:'Bestseller',badgeType:'accent-b',name:'Golden Exquisite Starlet Bangle',sub:'22K Gold · Bangles · Starlet',price:'₹81,821',orig:'',img:'https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Golden Sculptural Zoul Gold Bangle',sub:'22K Gold · Bangles · Zoul',price:'₹54,149',orig:'',img:'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=600&q=85&auto=format&fit=crop'},
   {cat:'gold',type:'bangles',badge:'',badgeType:'',name:'Auric Golden Bangle',sub:'22K Gold · Bangles',price:'₹1,37,061',orig:'',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
 
   // PENDANTS
   {cat:'gold',type:'pendants',badge:'',badgeType:'',name:'Dainty Om & Ganesha Gold Pendant',sub:'22K Gold · Pendants',price:'₹29,651',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gemstone',type:'pendants',badge:'Limited',badgeType:'gold-b',name:'Emerald Drop Pendant',sub:'Gemstone · Pendants · Precia',price:'₹56,000',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
+  {cat:'gemstone',type:'pendants',badge:'Limited',badgeType:'accent-b',name:'Emerald Drop Pendant',sub:'Gemstone · Pendants · Precia',price:'₹56,000',orig:'',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
 
   // DIAMOND
   {cat:'diamond',type:'rings',badge:'New',badgeType:'new-b',name:'Starlight Solitaire Ring',sub:'Diamond · Rings · Mine',price:'₹1,25,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  {cat:'diamond',type:'rings',badge:'Bestseller',badgeType:'gold-b',name:'Eternity Diamond Band',sub:'Diamond · Rings · Mine',price:'₹95,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+  {cat:'diamond',type:'rings',badge:'Bestseller',badgeType:'accent-b',name:'Eternity Diamond Band',sub:'Diamond · Rings · Mine',price:'₹95,000',orig:'',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
 
   // BRIDAL
-  {cat:'bridal',type:'bangles',badge:'Bestseller',badgeType:'gold-b',name:'Bridal Kangan Set',sub:'22K Gold · Bangles · Viraaz',price:'₹88,000',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
+  {cat:'bridal',type:'bangles',badge:'Bestseller',badgeType:'accent-b',name:'Bridal Kangan Set',sub:'22K Gold · Bangles · Viraaz',price:'₹88,000',orig:'',img:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop'},
   {cat:'bridal',type:'necklaces',badge:'',badgeType:'',name:'Royal Polki Bridal Necklace',sub:'22K Gold · Necklaces · Viraaz',price:'₹2,40,000',orig:'',img:'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=85&auto=format&fit=crop'},
 
   // MANGALSUTRA

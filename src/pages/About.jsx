@@ -33,7 +33,7 @@ export default function About() {
       {/* STORY STRIP */}
       <section className="story">
         <div className="story-text">
-          <span className="label" style={{color: 'var(--gold-lt)'}}>Our Philosophy</span>
+          <span className="label" style={{color: 'var(--accent-lt)'}}>Our Philosophy</span>
           <h2 className="story-heading">Made with Intent.<br/><em>Worn with Pride.</em></h2>
           <p className="story-body">
             Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty. Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
@@ -90,7 +90,7 @@ export default function About() {
       <div className="cta">
         <h2 className="cta-heading">Ready to find your <em>perfect</em> piece?</h2>
         <p className="cta-body">Whether you are looking for an engagement ring, a wedding trousseau, or a special gift, our experts are here to guide you.</p>
-        <Link to="/contact" className="btn-gold">Book a Consultation</Link>
+        <Link to="/contact" className="btn-accent">Book a Consultation</Link>
       </div>
 
     </main>
