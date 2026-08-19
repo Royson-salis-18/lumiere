@@ -1,126 +1,183 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function Home() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const heroTextY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const heroImgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
-    <main>
-      {/* HERO SECTION */}
-      <div className="hero">
-        <div className="hero-panel">
-          <div className="label fade-in-up">Heritage Collection</div>
-          <h1 className="hero-headline fade-in-up delay-1">
-            Where <em>Legacy</em><br />
-            Meets Brilliance.
-          </h1>
-          <p className="hero-sub fade-in-up delay-2">
-            Discover our curated selection of fine gold, rare diamonds, and ethically sourced gemstones, handcrafted in India since 1924.
-          </p>
-          <div className="hero-actions fade-in-up delay-3">
-            <Link to="/collections" className="btn-solid">Explore the Collection</Link>
-            <Link to="/about" className="btn-outline">Our Atelier</Link>
-          </div>
+    <main ref={containerRef}>
+      {/* NEW HERO SECTION BASED ON REFERENCE */}
+      <section className="hero-new">
+        
+        {/* Left Content */}
+        <div className="hero-new-left">
+          <motion.h1 
+            className="hero-new-title"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Timeless<br />Elegance
+          </motion.h1>
+          <motion.p 
+            className="hero-new-sub"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            Redefining the way you wear jewelry, elevate your style with pieces that are both modern and classic.
+          </motion.p>
+          <motion.div 
+            className="hero-new-actions"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <Link to="/collections" className="btn-solid-accent">Buy Now</Link>
+            <Link to="/about" className="btn-link">Learn More <span style={{fontSize: '1.2rem', marginLeft: '4px'}}>›</span></Link>
+          </motion.div>
+
+          {/* Bottom Card */}
+          <motion.div 
+            className="hero-new-bottom"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="hero-new-card">
+              <img src="https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=400&q=85&auto=format&fit=crop" alt="Bangle" />
+              <div className="hero-new-card-title">Golden Starlet Bangle</div>
+              <div className="hero-new-card-link">See Detail</div>
+            </div>
+            <div className="hero-new-arrow-wrap">
+              <div className="hero-new-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* REFINED COLLAGE SHOWCASE */}
-        <div className="hero-gallery fade-in-up delay-2">
-          <div className="collage-wrap">
-            <div className="hero-gallery-main">
-              <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Model wearing luxury jewellery" />
-            </div>
-            
-            <div className="hero-gallery-sub-img pos-1">
-              <div className="sub-img-wrap">
-                <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&q=85&auto=format&fit=crop" alt="Pearl Necklace" />
-              </div>
-            </div>
-            
-            <div className="hero-gallery-sub-img pos-2">
-              <div className="sub-img-wrap">
-                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Gold bangles" />
-              </div>
-              <div className="hero-float-badge">
-                <span className="hfb-label">Featured</span>
-                <span className="hfb-name">The Viraaz Set</span>
-                <span className="hfb-price">Discover &rarr;</span>
-              </div>
-            </div>
-
-            <div className="hero-gallery-sub-img pos-3">
-              <div className="sub-img-wrap">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop" alt="Bridal Sets" />
-              </div>
-            </div>
-
-            <div className="hero-gallery-sub-img pos-4">
-              <div className="sub-img-wrap">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond ring close up" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* MARQUEE */}
-      <div className="marquee">
-        <div className="marquee-track">
-          {[...Array(6)].map((_, i) => (
-            <span key={i} className="marquee-item">
-              CRAFTED IN INDIA <span className="marquee-dot">·</span> 
-              ETHICALLY SOURCED <span className="marquee-dot">·</span> 
-              LIFETIME EXCHANGE <span className="marquee-dot">·</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* SCROLLABLE HOME: FEATURED CATEGORIES */}
-      <section className="home-cats">
-        <div className="home-cats-inner">
-          <div className="hc-header fade-in-up">
-            <div className="label">Curated For You</div>
-            <h2 className="hc-title">Explore <em>Collections</em></h2>
-          </div>
-          <div className="hc-grid">
-            <Link to="/collections?cat=gold" className="hc-card fade-in-up delay-1">
-              <div className="hc-img">
-                <img src="https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop" alt="Pure 22K Gold" />
-              </div>
-              <h3 className="hc-name">22K Gold</h3>
-              <span className="hc-link">Shop Gold &rarr;</span>
-            </Link>
-            <Link to="/collections?cat=diamond" className="hc-card fade-in-up delay-2">
-              <div className="hc-img">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="GIA Diamonds" />
-              </div>
-              <h3 className="hc-name">Diamonds</h3>
-              <span className="hc-link">Shop Diamonds &rarr;</span>
-            </Link>
-            <Link to="/collections?cat=bridal" className="hc-card fade-in-up delay-3">
-              <div className="hc-img">
-                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop" alt="Bridal Sets" />
-              </div>
-              <h3 className="hc-name">Bridal</h3>
-              <span className="hc-link">Shop Bridal &rarr;</span>
-            </Link>
-          </div>
+        {/* Right Shaped Image */}
+        <div className="hero-new-right">
+          <motion.div 
+            className="hero-new-image-wrap"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=900&q=85&auto=format&fit=crop" alt="Luxury Bridal Necklace" />
+          </motion.div>
         </div>
       </section>
 
-      {/* SCROLLABLE HOME: STORY TEASER */}
-      <section className="home-story">
-        <div className="hs-img fade-in-up">
-          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=85&auto=format&fit=crop" alt="Craftsmanship" />
-        </div>
-        <div className="hs-text fade-in-up delay-1">
-          <div className="label">Our Heritage</div>
-          <h2 className="hc-title" style={{marginTop: '12px', marginBottom: '24px'}}>A Century of <em>Mastery</em></h2>
-          <p className="hero-sub" style={{marginBottom: '32px'}}>
-            Every Lumière piece begins as a conversation between our designers and the materials themselves. Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
-          </p>
-          <Link to="/about" className="btn-solid" style={{display: 'inline-flex', padding: '16px 40px'}}>Discover Our Story</Link>
+      {/* CIRCULAR / RADIAL SHOWCASE */}
+      <section className="circular-showcase">
+        <div className="circular-container">
+           {/* Center Piece */}
+           <motion.div 
+             className="circle-item" 
+             style={{ zIndex: 10, width: '400px', height: '500px' }}
+             initial={{ opacity: 0, scale: 0.8 }}
+             whileInView={{ opacity: 1, scale: 1 }}
+             viewport={{ once: true }}
+             transition={{ duration: 1 }}
+           >
+             <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&q=85&auto=format&fit=crop" alt="Pearl Necklace" />
+             <div className="circle-item-details">
+               <div className="circle-item-title">Lumière Teardrop</div>
+               <div className="circle-item-price">$189.00</div>
+             </div>
+           </motion.div>
+
+           {/* Orbiting Pieces */}
+           <motion.div 
+             className="circle-item" 
+             style={{ top: '10%', left: '15%' }}
+             initial={{ opacity: 0, x: -50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 1, delay: 0.2 }}
+           >
+             <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Gold ring" />
+             <div className="circle-item-details">
+               <div className="circle-item-title">Eternal Bloom</div>
+               <div className="circle-item-price">$159.00</div>
+             </div>
+           </motion.div>
+
+           <motion.div 
+             className="circle-item" 
+             style={{ bottom: '10%', right: '15%' }}
+             initial={{ opacity: 0, x: 50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 1, delay: 0.4 }}
+           >
+             <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond Ring" />
+             <div className="circle-item-details">
+               <div className="circle-item-title">Velvet Heart</div>
+               <div className="circle-item-price">$199.00</div>
+             </div>
+           </motion.div>
         </div>
       </section>
-      
+
+      {/* TECHNICAL SPECS SECTION */}
+      <section className="tech-specs">
+        <div className="tech-image">
+          <motion.img 
+            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=85&auto=format&fit=crop" 
+            alt="Technical Details"
+            initial={{ opacity: 0, scale: 1.1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+          />
+        </div>
+        <div className="tech-details">
+          <motion.div 
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8 }}
+             className="tech-stat"
+          >
+            <div className="tech-stat-label">Height</div>
+            <div className="tech-stat-value">25.1 mm</div>
+          </motion.div>
+          
+          <motion.div 
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             className="tech-stat"
+          >
+            <div className="tech-stat-label">Diamond Weight</div>
+            <div className="tech-stat-value">1.292 gct</div>
+          </motion.div>
+
+          <motion.div 
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.4 }}
+             className="tech-stat"
+          >
+            <div className="tech-stat-label">Metal Weight</div>
+            <div className="tech-stat-value">2.77 gm</div>
+          </motion.div>
+        </div>
+      </section>
     </main>
   );
 }
