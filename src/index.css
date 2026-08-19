@@ -559,4 +559,10 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   .collection-header-row { flex-direction: column; align-items: flex-start; gap: 24px; margin-bottom: 40px; }
   .hero-paragraph { position: relative !important; bottom: auto !important; right: auto !important; left: auto !important; text-align: center !important; margin-top: 40px; }
   .collection-header-desc { text-align: left; padding-right: 0; border-right: none; padding-left: 24px; border-left: 2px solid var(--accent-gold); max-width: 100%; }
+  
+  /* Mobile Navigation Fixes */
+  .nav-container { flex-direction: column; gap: 16px; padding: 16px !important; height: auto !important; border-radius: 24px !important; }
+  .nav-pill-link { padding: 6px 12px !important; font-size: 0.8rem !important; }
+  .nav-btn-cart { padding: 8px 16px !important; font-size: 0.85rem !important; width: 100%; text-align: center; }
+  .nav-actions { width: 100%; }
 }
