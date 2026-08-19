@@ -567,6 +567,10 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
     height: 60px !important; 
     border-radius: 50px !important;
     justify-content: space-between;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    top: 12px !important;
   }
   .nav-brand { font-size: 1rem !important; letter-spacing: 0.1em !important; }
   .nav-pill {
