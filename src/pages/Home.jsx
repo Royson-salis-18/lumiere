@@ -1,183 +1,163 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+const pageVariants = {
+  initial: { opacity: 0, filter: 'blur(10px)' },
+  in: { opacity: 1, filter: 'blur(0px)', transition: { duration: 1, ease: 'easeOut' } },
+  out: { opacity: 0, filter: 'blur(10px)', transition: { duration: 0.8, ease: 'easeIn' } }
+};
+
 export default function Home() {
-  const containerRef = useRef(null);
+  const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: heroRef,
     offset: ["start start", "end start"]
   });
 
-  const heroTextY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const heroImgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   return (
-    <main ref={containerRef}>
-      {/* NEW HERO SECTION BASED ON REFERENCE */}
-      <section className="hero-new">
+    <motion.main 
+      variants={pageVariants}
+      initial="initial"
+      animate="in"
+      exit="out"
+    >
+      {/* MASSIVE HERO WITH INSET BORDER & BENTOS */}
+      <section ref={heroRef} className="hero-dribbble">
+        <motion.div className="hero-bg" style={{ y: heroY, scale: heroScale }}>
+          <img src="/hero.png" alt="Luxury Jewelry" />
+        </motion.div>
         
-        {/* Left Content */}
-        <div className="hero-new-left">
-          <motion.h1 
-            className="hero-new-title"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Timeless<br />Elegance
-          </motion.h1>
-          <motion.p 
-            className="hero-new-sub"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            Redefining the way you wear jewelry, elevate your style with pieces that are both modern and classic.
-          </motion.p>
-          <motion.div 
-            className="hero-new-actions"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <Link to="/collections" className="btn-solid-accent">Buy Now</Link>
-            <Link to="/about" className="btn-link">Learn More <span style={{fontSize: '1.2rem', marginLeft: '4px'}}>›</span></Link>
-          </motion.div>
-
-          {/* Bottom Card */}
-          <motion.div 
-            className="hero-new-bottom"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="hero-new-card">
-              <img src="https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=400&q=85&auto=format&fit=crop" alt="Bangle" />
-              <div className="hero-new-card-title">Golden Starlet Bangle</div>
-              <div className="hero-new-card-link">See Detail</div>
+        {/* INSET CONTAINER */}
+        <div className="hero-inset">
+          
+          {/* Main Hero Text (Right Aligned) */}
+          <div className="hero-text-container">
+            <h1 className="text-massive text-serif" style={{ lineHeight: '0.9', marginBottom: '32px' }}>
+              Luxury<br/>Jewelry
+            </h1>
+            <div className="hero-text-actions">
+              <button className="btn-pill-white">
+                Contact Us 
+                <span className="btn-arrow">→</span>
+              </button>
             </div>
-            <div className="hero-new-arrow-wrap">
-              <div className="hero-new-arrow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </div>
+
+          {/* Bottom Left Bento Card */}
+          <div className="bento-container">
+            {/* Socials Box */}
+            <div className="bento-socials">
+              <div className="social-icon">In</div>
+              <div className="social-icon">Tw</div>
+              <div className="social-icon">Fb</div>
+            </div>
+
+            {/* Main Info Bento */}
+            <div className="bento-card main-bento">
+              <div className="bento-img-wrap">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=90&auto=format&fit=crop" alt="Bracelet" />
+              </div>
+              <div className="bento-content">
+                <h3 className="bento-title">Unlock Your<br/>Potential Your<br/>Journey</h3>
+                <a href="/collections" className="bento-link">Shop Now</a>
               </div>
             </div>
-          </motion.div>
-        </div>
+            
+            {/* Secondary Stat Bento */}
+            <div className="bento-card stat-bento">
+              <div className="stat-val">24K</div>
+              <div className="stat-label">Pure Gold</div>
+            </div>
+          </div>
 
-        {/* Right Shaped Image */}
-        <div className="hero-new-right">
-          <motion.div 
-            className="hero-new-image-wrap"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=900&q=85&auto=format&fit=crop" alt="Luxury Bridal Necklace" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CIRCULAR / RADIAL SHOWCASE */}
-      <section className="circular-showcase">
-        <div className="circular-container">
-           {/* Center Piece */}
-           <motion.div 
-             className="circle-item" 
-             style={{ zIndex: 10, width: '400px', height: '500px' }}
-             initial={{ opacity: 0, scale: 0.8 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1 }}
-           >
-             <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=600&q=85&auto=format&fit=crop" alt="Pearl Necklace" />
-             <div className="circle-item-details">
-               <div className="circle-item-title">Lumière Teardrop</div>
-               <div className="circle-item-price">$189.00</div>
-             </div>
-           </motion.div>
-
-           {/* Orbiting Pieces */}
-           <motion.div 
-             className="circle-item" 
-             style={{ top: '10%', left: '15%' }}
-             initial={{ opacity: 0, x: -50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1, delay: 0.2 }}
-           >
-             <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=85&auto=format&fit=crop" alt="Gold ring" />
-             <div className="circle-item-details">
-               <div className="circle-item-title">Eternal Bloom</div>
-               <div className="circle-item-price">$159.00</div>
-             </div>
-           </motion.div>
-
-           <motion.div 
-             className="circle-item" 
-             style={{ bottom: '10%', right: '15%' }}
-             initial={{ opacity: 0, x: 50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 1, delay: 0.4 }}
-           >
-             <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop" alt="Diamond Ring" />
-             <div className="circle-item-details">
-               <div className="circle-item-title">Velvet Heart</div>
-               <div className="circle-item-price">$199.00</div>
-             </div>
-           </motion.div>
-        </div>
-      </section>
-
-      {/* TECHNICAL SPECS SECTION */}
-      <section className="tech-specs">
-        <div className="tech-image">
-          <motion.img 
-            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=900&q=85&auto=format&fit=crop" 
-            alt="Technical Details"
-            initial={{ opacity: 0, scale: 1.1 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-          />
-        </div>
-        <div className="tech-details">
-          <motion.div 
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8 }}
-             className="tech-stat"
-          >
-            <div className="tech-stat-label">Height</div>
-            <div className="tech-stat-value">25.1 mm</div>
-          </motion.div>
+          {/* Bottom Right Paragraph */}
+          <div className="hero-paragraph">
+            <h4 className="text-gold" style={{ fontSize: '0.85rem', marginBottom: '8px', letterSpacing: '0.05em' }}>Lumière Jewelry</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: '1.6', maxWidth: '300px' }}>
+              Join a passionate community, supporting and motivating each other every step of your luxury journey.
+            </p>
+          </div>
           
+        </div>
+      </section>
+
+      {/* MARQUEE */}
+      <section className="marquee-container">
+        <div className="marquee-content">
+          {[...Array(6)].map((_, i) => (
+            <span key={i} className="marquee-text">Redefining Elegance • </span>
+          ))}
+        </div>
+      </section>
+
+      {/* EDITORIAL ASYMMETRICAL GRID */}
+      <section className="editorial-section">
+        <div className="editorial-header">
+          <h2 className="editorial-title text-serif">Curated<br/><span className="text-gold">Masterpieces</span></h2>
+          <p style={{ maxWidth: '300px', color: 'var(--text-muted)' }}>
+            Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary.
+          </p>
+        </div>
+
+        <div className="editorial-grid">
           <motion.div 
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8, delay: 0.2 }}
-             className="tech-stat"
+            className="editorial-item item-1"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="tech-stat-label">Diamond Weight</div>
-            <div className="tech-stat-value">1.292 gct</div>
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=90&auto=format&fit=crop" alt="Ring" />
+            <div className="item-overlay">
+              <h3 className="text-serif" style={{ fontSize: '2.5rem' }}>Eternal Bloom</h3>
+              <p className="text-gold">View Details</p>
+            </div>
           </motion.div>
 
           <motion.div 
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             transition={{ duration: 0.8, delay: 0.4 }}
-             className="tech-stat"
+            className="editorial-item item-2"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="tech-stat-label">Metal Weight</div>
-            <div className="tech-stat-value">2.77 gm</div>
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=90&auto=format&fit=crop" alt="Earrings" />
+            <div className="item-overlay">
+              <h3 className="text-serif" style={{ fontSize: '2rem' }}>Aura Cascade</h3>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="editorial-item item-3"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=800&q=90&auto=format&fit=crop" alt="Necklace" />
+            <div className="item-overlay">
+              <h3 className="text-serif" style={{ fontSize: '2rem' }}>Velvet Tear</h3>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="editorial-item item-4"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=800&q=90&auto=format&fit=crop" alt="Bridal" />
+            <div className="item-overlay">
+              <h3 className="text-serif" style={{ fontSize: '3rem' }}>Lumière Signature</h3>
+              <p className="text-gold">Explore Collection</p>
+            </div>
           </motion.div>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 }

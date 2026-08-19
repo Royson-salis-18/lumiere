@@ -1,129 +1,196 @@
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ALL = [
-  // RINGS (Gold)
-  {cat:'gold',type:'rings',badge:'Bestseller',name:'Secret Garden Gold Ring',sub:'22K Gold · Rings',price:'₹40,525',img:'https://images.unsplash.com/photo-1605100804763-247f6612089fb?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'rings',badge:'',name:'Petal Poetry Gold Ring',sub:'22K Gold · Rings',price:'₹32,503',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gemstone',type:'rings',badge:'New',name:'Twilight Petal Tourmaline Ring',sub:'Gemstone · Rings',price:'₹41,839',img:'https://images.unsplash.com/photo-1573408301145-b98c4af06b8f?w=600&q=85&auto=format&fit=crop'},
-  
-  // NECKLACES
-  {cat:'gold',type:'necklaces',badge:'Only 1 Left',name:'Velvet Blossom Gold Necklace',sub:'22K Gold · Necklace Set',price:'₹1,80,825',img:'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'necklaces',badge:'',name:'Roselight Lotus Gold Necklace',sub:'22K Gold · Necklaces',price:'₹1,65,038',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  
-  // EARRINGS
-  {cat:'gold',type:'earrings',badge:'',name:'Lotus Blush Gold Hoop Earrings',sub:'22K Gold · Earrings',price:'₹52,608',img:'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop'},
-  {cat:'gold',type:'earrings',badge:'Only 1 Left',name:'Blushing Bloom Gold Hoops',sub:'22K Gold · Earrings',price:'₹47,880',img:'https://images.unsplash.com/photo-1588444650733-d0767b753fc8?w=600&q=85&auto=format&fit=crop'},
+const pageVariants = {
+  initial: { opacity: 0, y: 50 },
+  in: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+  out: { opacity: 0, y: -50, transition: { duration: 0.8, ease: 'easeIn' } }
+};
 
-  // DIAMOND
-  {cat:'diamond',type:'rings',badge:'New',name:'Starlight Solitaire Ring',sub:'Diamond · Rings',price:'₹1,25,000',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
-  {cat:'diamond',type:'rings',badge:'Bestseller',name:'Eternity Diamond Band',sub:'Diamond · Rings',price:'₹95,000',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=85&auto=format&fit=crop'},
+const CAROUSEL_ITEMS = [
+  { id: 0, name: "Sapphire Solstice", price: "$12,400", desc: "A nutritionally complete—wait, no, a structurally complete masterpiece featuring a massive blue sapphire surrounded by conflict-free diamonds.", img: "https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=800&q=85&auto=format&fit=crop" },
+  { id: 1, name: "Diamond Halo Ring", price: "$8,200", desc: "A perfectly cut central diamond encased in a glowing halo of smaller stones, set in pristine platinum for the unforgettable moments.", img: "https://images.unsplash.com/photo-1605100804763-247f67b2548e?w=800&q=80" },
+  { id: 2, name: "Heritage Gold Band", price: "$4,500", desc: "Crafted for generations. A vintage-inspired solid gold band featuring intricate filigree work and subtle diamond accents.", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80" },
+  { id: 3, name: "Pearl Choker", price: "$6,900", desc: "A delicate string of south sea pearls, bringing a touch of classic elegance to the modern, curated wardrobe.", img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80" },
+  { id: 4, name: "Ruby Chandeliers", price: "$14,000", desc: "Cascading rubies set in rose gold. Designed to catch the light and the attention of everyone in the room.", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-};
+const MAIN_POS   = { left: 56, top: 50, scale: 3.05 };
+const PERIM_POS  = [
+  { left: 62, top: 8  },  // top
+  { left: 93, top: 27 },  // upper-right
+  { left: 93, top: 73 },  // lower-right
+  { left: 62, top: 92 }   // bottom
+];
 
 export default function Collections() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentCat = searchParams.get('cat') || 'all';
-
-  const handleCatClick = (cat) => {
-    if (cat === 'all') searchParams.delete('cat');
-    else searchParams.set('cat', cat);
-    setSearchParams(searchParams);
-  };
-
-  const filtered = ALL.filter(p => currentCat === 'all' || p.cat === currentCat);
+  const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Create an array mapping each item to its current slot
+  // slot -1 is the main position. slots 0-3 are perimeter positions.
+  const slots = CAROUSEL_ITEMS.filter(item => item.id !== activeIndex).map(item => item.id);
 
   return (
-    <main style={{ padding: '160px 48px', minHeight: '100vh', backgroundColor: 'var(--bg-primary)' }}>
-      
-      {/* FILTER BAR */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '80px' }}>
-        {['all', 'gold', 'diamond', 'gemstone'].map(cat => (
-          <button 
-            key={cat}
-            onClick={() => handleCatClick(cat)}
-            style={{
-              padding: '12px 32px',
-              backgroundColor: currentCat === cat ? '#fff' : 'transparent',
-              color: currentCat === cat ? '#000' : '#fff',
-              border: '1px solid #fff',
-              borderRadius: '50px',
-              textTransform: 'uppercase',
-              fontSize: '0.75rem',
-              letterSpacing: '0.1em',
-              transition: 'all 0.3s'
-            }}
-          >
-            {cat}
-          </button>
-        ))}
+    <motion.main 
+      className="collection-page"
+      variants={pageVariants}
+      initial="initial"
+      animate="in"
+      exit="out"
+    >
+      <div className="collection-header-row">
+        <div>
+          <h1 className="text-massive" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)' }}>
+            Curated<br/><span className="text-gold">Masterpieces</span>
+          </h1>
+        </div>
+        <div className="collection-header-desc">
+          Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary.
+        </div>
       </div>
 
-      {/* PRODUCT GRID */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="show"
-        key={currentCat}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '40px'
-        }}
-      >
-        <AnimatePresence>
-          {filtered.map((p, idx) => (
-            <motion.div 
-              key={p.name + idx} 
-              variants={itemVariants}
-              layout
-              style={{ display: 'flex', flexDirection: 'column' }}
+      {/* SUPREME ROTATING CAROUSEL */}
+      <div className="supreme-stage-wrap">
+        <div className="supreme-info">
+          <div className="supreme-eyebrow">Exclusive Collection</div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '3/4', marginBottom: '20px' }}>
-                <motion.img 
-                  src={p.img} 
-                  alt={p.name} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.5 }}
-                />
-                {p.badge && (
-                  <div style={{
-                    position: 'absolute', top: '16px', left: '16px',
-                    backgroundColor: 'rgba(0,0,0,0.8)', color: '#fff',
-                    padding: '8px 16px', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.1em'
-                  }}>
-                    {p.badge}
-                  </div>
-                )}
+              <h2 className="supreme-title">{CAROUSEL_ITEMS[activeIndex].name}</h2>
+              <p className="supreme-desc">{CAROUSEL_ITEMS[activeIndex].desc}</p>
+              <div className="text-gold" style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '32px' }}>
+                {CAROUSEL_ITEMS[activeIndex].price}
               </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                {p.sub}
-              </div>
-              <div style={{ fontFamily: 'var(--ff-serif)', fontSize: '1.25rem', marginBottom: '8px' }}>
-                {p.name}
-              </div>
-              <div style={{ color: 'var(--text-secondary)' }}>
-                {p.price}
-              </div>
+              <button className="btn-solid-dark" style={{ padding: '16px 40px', borderRadius: '50px' }}>
+                View Details
+              </button>
             </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
-      
-    </main>
+          </AnimatePresence>
+        </div>
+
+        <div className="supreme-stage">
+          <div className="supreme-blob"></div>
+          <svg className="orbit-svg" viewBox="0 0 640 640">
+            <path className="orbit-path" d="M 410 50 C 640 120, 640 520, 410 590"></path>
+          </svg>
+          
+          {CAROUSEL_ITEMS.map((item) => {
+            const isMain = item.id === activeIndex;
+            const slotIndex = slots.indexOf(item.id);
+            
+            return (
+              <motion.div
+                key={item.id}
+                className={`supreme-dish ${isMain ? 'is-main' : ''}`}
+                onClick={() => !isMain && setActiveIndex(item.id)}
+                animate={{
+                  left: `${isMain ? MAIN_POS.left : PERIM_POS[slotIndex].left}%`,
+                  top: `${isMain ? MAIN_POS.top : PERIM_POS[slotIndex].top}%`,
+                  scale: isMain ? MAIN_POS.scale : 1,
+                  zIndex: isMain ? 20 : 15,
+                }}
+                transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                style={{ x: '-50%', y: '-50%' }}
+              >
+                <img src={item.img} alt={item.name} />
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* BLENDED GRID (ASYMMETRICAL BENTO STYLE) */}
+      <div className="blended-grid">
+        <div className="blend-hero">
+          <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=1200&q=85" alt="Hero Lookbook" />
+          <div className="promo-overlay">
+            <h3 className="text-serif" style={{ fontSize: '3rem', marginBottom: '16px' }}>The Rakhi Edit</h3>
+            <button className="btn-solid-dark" style={{ padding: '12px 32px', borderRadius: '50px' }}>Shop Collection</button>
+          </div>
+        </div>
+        
+        <div className="blend-stack">
+          <div className="blend-stack-item">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?w=800&q=80" alt="Item" />
+            <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
+              <div className="masonry-name">Emerald Cut Halo</div>
+              <div className="masonry-price">$4,200</div>
+            </div>
+          </div>
+          <div className="blend-stack-item">
+            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80" alt="Item" />
+            <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
+              <div className="masonry-name">Sapphire Drop</div>
+              <div className="masonry-price">$8,900</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="blended-grid" style={{ gridAutoRows: '500px', gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="blend-stack-item">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" alt="Item" />
+          <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
+            <div className="masonry-name">Ruby Chandeliers</div>
+            <div className="masonry-price">$12,000</div>
+          </div>
+        </div>
+        <div className="blend-stack-item" style={{ gridColumn: 'span 2' }}>
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=85" alt="Item" />
+          <div className="promo-overlay">
+            <h3 className="text-serif" style={{ fontSize: '3rem', marginBottom: '16px' }}>Choose Your Look</h3>
+            <button className="btn-solid-dark" style={{ padding: '12px 32px', borderRadius: '50px' }}>Explore Now</button>
+          </div>
+        </div>
+      </div>
+
+      {/* DECORATIVE ASSURANCE SECTION */}
+      <div className="assurance-section">
+        <div className="assurance-box">
+          <h2 className="text-serif text-gold" style={{ fontSize: '2.5rem', marginBottom: '8px' }}>The Lumière Assurance</h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Crafted by experts, cherished by you.</p>
+          
+          <div className="assurance-grid">
+            <div className="assurance-item">
+              <div className="assurance-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="1.5">
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <h4>Lumière Exchange</h4>
+            </div>
+            <div className="assurance-item">
+              <div className="assurance-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="1.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h4>Purity Guarantee</h4>
+            </div>
+            <div className="assurance-item">
+              <div className="assurance-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="1.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h4>Easy Replacements</h4>
+            </div>
+            <div className="assurance-item">
+              <div className="assurance-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="1.5">
+                  <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <h4>Lifetime Maintenance</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.main>
   );
 }

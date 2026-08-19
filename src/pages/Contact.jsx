@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const pageVariants = {
+  initial: { opacity: 0, y: 50 },
+  in: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
+  out: { opacity: 0, y: -50, transition: { duration: 0.8, ease: 'easeIn' } }
+};
 
 export default function Contact() {
   const [status, setStatus] = useState('');
@@ -13,125 +19,79 @@ export default function Contact() {
   };
 
   return (
-    <main>
-      {/* PAGE HERO */}
-      <div className="page-hero">
-        <div className="page-hero-inner">
-          <div className="page-hero-text">
-            <span className="label">Get in Touch</span>
-            <h1 className="page-title">
-              Book Your<br /><em>Private Consultation</em>
-            </h1>
-            <p className="page-sub">Whether you're looking for the perfect bridal set, an anniversary gift, or simply want to explore — our experts are here to guide you every step of the way.</p>
-          </div>
-          <div className="page-hero-img">
-            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=85&auto=format&fit=crop" alt="Consultation" loading="eager" />
-          </div>
-        </div>
+    <motion.main 
+      className="page-container"
+      variants={pageVariants}
+      initial="initial"
+      animate="in"
+      exit="out"
+    >
+      <div className="order-header">
+        <h1 className="text-massive" style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', marginBottom: '24px' }}>
+          Get In <span className="text-gold">Touch</span>
+        </h1>
+        <p className="page-body-large" style={{ maxWidth: '600px' }}>
+          For bespoke inquiries, styling advice, or general questions, our concierge team is at your disposal.
+        </p>
       </div>
 
-      <div className="contact-grid">
+      <div className="order-grid">
         {/* FORM SIDE */}
-        <div className="contact-form-side">
-          <span className="form-section-label">Consultation Request</span>
-          <form onSubmit={handleSubmit}>
+        <div className="order-form-wrapper">
+          <h2 className="text-serif" style={{ fontSize: '2rem', marginBottom: '32px', color: 'var(--accent-dark)' }}>Send a Message</h2>
+          <form onSubmit={handleSubmit} className="premium-form">
             <div className="form-row">
               <div className="form-group">
-                <label className="fl" htmlFor="fname">First Name</label>
-                <input type="text" id="fname" placeholder="Priya" required />
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" required />
               </div>
               <div className="form-group">
-                <label className="fl" htmlFor="lname">Last Name</label>
-                <input type="text" id="lname" placeholder="Sharma" required />
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" required />
               </div>
             </div>
+            
             <div className="form-group">
-              <label className="fl" htmlFor="email">Email Address</label>
-              <input type="email" id="email" placeholder="priya@example.com" required />
+              <label>Email Address</label>
+              <input type="email" placeholder="Email Address" required />
             </div>
+
             <div className="form-group">
-              <label className="fl" htmlFor="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="+91 98765 43210" required />
+              <label>Your Message</label>
+              <textarea placeholder="How can we assist you today?" rows="5" required></textarea>
             </div>
-            <div className="form-group">
-              <label className="fl" htmlFor="interest">I'm Interested In</label>
-              <select id="interest" required>
-                <option value="">Select a category…</option>
-                <option>Bridal Jewellery</option>
-                <option>Gold Jewellery</option>
-                <option>Diamond Jewellery</option>
-                <option>Gemstone Jewellery</option>
-                <option>Gifting</option>
-                <option>Custom / Bespoke Design</option>
-                <option>Valuation &amp; Exchange</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label className="fl" htmlFor="visit">Preferred Visit</label>
-              <select id="visit" required>
-                <option value="">Select an option…</option>
-                <option>In-store Visit</option>
-                <option>Home Trial</option>
-                <option>Virtual Consultation</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label className="fl" htmlFor="message">Your Message</label>
-              <textarea id="message" placeholder="Tell us a little about what you're looking for — occasion, budget, style preferences…" required></textarea>
-            </div>
-            <button type="submit" className="btn-submit" disabled={status === 'sending' || status === 'sent'}>
-              {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Request Sent ✓' : 'Send Request →'}
+
+            <button type="submit" className="btn-solid-dark" disabled={status === 'sending' || status === 'sent'}>
+              {status === 'sending' ? 'Sending…' : status === 'sent' ? 'Message Sent ✓' : 'Send Message'}
             </button>
+            
             {status === 'sent' && (
-              <div className="success-msg" style={{display: 'block'}}>Thank you! Our team will be in touch within 24 hours.</div>
+              <div className="success-msg">Thank you! We will get back to you within 24 hours.</div>
             )}
           </form>
         </div>
 
-        {/* INFO SIDE */}
-        <div className="contact-info-side">
-          <span className="form-section-label">Find Us</span>
+        {/* INFO SIDE (BENTO STYLE) */}
+        <div className="order-info-wrapper">
+          <div className="info-bento dark-bento">
+            <h3 className="info-title text-gold">Direct Contact</h3>
+            <p className="info-text">+91 800 123 4567<br/>hello@lumiere.in</p>
+            <p className="info-text small">Client care available Mon – Sat, 10AM – 7PM IST</p>
+          </div>
 
-          <div className="info-block">
-            <div className="info-block-title">Flagship Boutiques</div>
-            <div className="store-cards">
-              <div className="store-card">
-                <div className="store-city">Mumbai</div>
-                <p className="store-addr">42, Horniman Circle,<br/>Fort, Mumbai — 400 001</p>
-                <div className="store-hrs">Mon – Sat · 11AM – 8PM</div>
+          <div className="info-bento">
+            <h3 className="info-title">Flagship Boutiques</h3>
+            <div className="store-list">
+              <div className="store-item">
+                <strong>Mumbai</strong><br/>42, Horniman Circle, Fort
               </div>
-              <div className="store-card">
-                <div className="store-city">Delhi</div>
-                <p className="store-addr">C-12, Connaught Place,<br/>New Delhi — 110 001</p>
-                <div className="store-hrs">Mon – Sat · 11AM – 8PM</div>
-              </div>
-              <div className="store-card">
-                <div className="store-city">Bengaluru</div>
-                <p className="store-addr">15, MG Road,<br/>Bengaluru — 560 001</p>
-                <div className="store-hrs">Mon – Sat · 10AM – 8PM</div>
-              </div>
-              <div className="store-card">
-                <div className="store-city">Chennai</div>
-                <p className="store-addr">7, Anna Salai,<br/>Chennai — 600 002</p>
-                <div className="store-hrs">Mon – Sat · 10AM – 8PM</div>
+              <div className="store-item">
+                <strong>Delhi</strong><br/>C-12, Connaught Place
               </div>
             </div>
           </div>
-
-          <div className="info-block">
-            <div className="info-block-title">Direct Contact</div>
-            <a href="tel:+918001234567">+91 800 123 4567</a>
-            <a href="mailto:hello@lumiere.in">hello@lumiere.in</a>
-            <p style={{marginTop: '10px'}}>Client care available Mon – Sat, 10AM – 7PM IST</p>
-          </div>
-
-          <div className="info-block">
-            <div className="info-block-title">Home Trial Service</div>
-            <p>Can't visit us? We'll come to you. Our expert stylists offer complimentary at-home jewellery trials across Mumbai, Delhi, Bengaluru, and Chennai.</p>
-          </div>
         </div>
       </div>
-
-    </main>
+    </motion.main>
   );
 }
