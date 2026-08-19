@@ -21,24 +21,74 @@ function ScrollToTop() {
 function Nav() {
   const location = useLocation();
   const path = location.pathname;
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  // Close drawer on navigation
+  React.useEffect(() => { setMenuOpen(false); }, [location]);
+
+  // Prevent body scroll when drawer is open
+  React.useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const links = [
+    { to: '/', label: 'Home' },
+    { to: '/collections', label: 'Collections' },
+    { to: '/about', label: 'Atelier' },
+    { to: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <nav className="nav-container">
-      <Link to="/" className="nav-brand text-serif" style={{ letterSpacing: '0.15em', fontWeight: 600, fontSize: '1.4rem' }}>
-        LUMIÈRE
-      </Link>
-      
-      <div className="nav-pill">
-        <Link to="/" className={`nav-pill-link ${path === '/' ? 'active' : ''}`}>Home</Link>
-        <Link to="/collections" className={`nav-pill-link ${path === '/collections' ? 'active' : ''}`}>Collections</Link>
-        <Link to="/about" className={`nav-pill-link ${path === '/about' ? 'active' : ''}`}>Atelier</Link>
-        <Link to="/contact" className={`nav-pill-link ${path === '/contact' ? 'active' : ''}`}>Contact</Link>
-      </div>
+    <>
+      <nav className="nav-container">
+        <Link to="/" className="nav-brand text-serif" style={{ letterSpacing: '0.15em', fontWeight: 600, fontSize: '1.4rem' }}>
+          LUMIÈRE
+        </Link>
 
-      <div className="nav-actions">
-        <Link to="/cart" className="nav-btn-cart">Cart [1]</Link>
+        {/* Desktop pill links */}
+        <div className="nav-pill nav-desktop-only">
+          {links.map(l => (
+            <Link key={l.to} to={l.to} className={`nav-pill-link ${path === l.to ? 'active' : ''}`}>{l.label}</Link>
+          ))}
+        </div>
+
+        <div className="nav-actions">
+          <Link to="/cart" className="nav-btn-cart">Cart</Link>
+          {/* Hamburger — mobile only */}
+          <button
+            className="nav-hamburger"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span className={`ham-bar ${menuOpen ? 'open' : ''}`} />
+            <span className={`ham-bar ${menuOpen ? 'open' : ''}`} />
+            <span className={`ham-bar ${menuOpen ? 'open' : ''}`} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer */}
+      <div className={`mobile-drawer ${menuOpen ? 'drawer-open' : ''}`}>
+        <div className="drawer-inner">
+          <p className="drawer-brand text-serif">LUMIÈRE</p>
+          <nav className="drawer-links">
+            {links.map(l => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`drawer-link ${path === l.to ? 'drawer-link-active' : ''}`}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link to="/cart" className="drawer-link">Cart</Link>
+          </nav>
+          <p className="drawer-tagline">Fine Jewellery · Est. 2024</p>
+        </div>
       </div>
-    </nav>
+    </>
   );
 }
 
