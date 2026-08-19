@@ -47,17 +47,7 @@ export default function Collections() {
             Curated<br/><span className="text-gold">Masterpieces</span>
           </h1>
         </div>
-        <div style={{
-          maxWidth: '450px',
-          fontSize: '1.4rem',
-          lineHeight: 1.6,
-          color: 'var(--accent-dark)',
-          textAlign: 'right',
-          fontFamily: 'var(--font-serif)',
-          fontStyle: 'italic',
-          borderRight: '3px solid var(--accent-gold)',
-          paddingRight: '24px'
-        }}>
+        <div className="collection-header-desc">
           "Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary."
         </div>
       </div>

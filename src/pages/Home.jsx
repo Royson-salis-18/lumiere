@@ -99,17 +99,7 @@ export default function Home() {
       <section className="editorial-section">
         <div className="editorial-header">
           <h2 className="editorial-title text-serif">Curated<br/><span className="text-gold">Masterpieces</span></h2>
-          <p style={{
-            maxWidth: '450px',
-            fontSize: '1.4rem',
-            lineHeight: 1.6,
-            color: 'var(--accent-dark)',
-            textAlign: 'right',
-            fontFamily: 'var(--font-serif)',
-            fontStyle: 'italic',
-            borderRight: '3px solid var(--accent-gold)',
-            paddingRight: '24px'
-          }}>
+          <p className="collection-header-desc">
             "Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary."
           </p>
         </div>
