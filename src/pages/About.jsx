@@ -53,26 +53,43 @@ export default function About() {
         </div>
       </section>
 
-      {/* STORY STRIP */}
-      <section className="story-strip">
-        <div className="story-content">
-          <span className="section-label">Our Philosophy</span>
-          <h2 className="text-serif" style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)', marginBottom: '32px' }}>
+      {/* STORY STRIP & CRAFTSMANSHIP BENTO */}
+      <section style={{ padding: '100px 5vw' }}>
+        <div style={{ marginBottom: '100px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span className="section-label" style={{ marginBottom: '24px' }}>Our Philosophy</span>
+          <h2 className="text-serif text-gold" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', lineHeight: 1.1, marginBottom: '40px' }}>
             Made with Intent.<br/>Worn with Pride.
           </h2>
-          <p className="page-body" style={{ maxWidth: '500px' }}>
-            Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty. Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
+          <p className="page-body-large" style={{ maxWidth: '800px', color: 'var(--text-muted)' }}>
+            Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty. 
+            <br/><br/>
+            Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
           </p>
         </div>
-        <div className="story-img-wrap">
-          <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=900&q=90&auto=format&fit=crop" alt="Crafting jewelry" />
+        
+        <div className="craftsmanship-bento-grid">
+          <div className="craft-bento-large">
+            <img src="/img1_ring.png" alt="Diamond Setting" />
+            <div className="craft-overlay">
+              <h3 className="text-serif" style={{ fontSize: '2rem' }}>Precision Setting</h3>
+              <p>Micro-pavé diamonds set by master jewelers under 40x magnification.</p>
+            </div>
+          </div>
+          <div className="craft-bento-stack">
+            <div className="craft-bento-small">
+              <img src="/img4_vintage.png" alt="Gold Polishing" />
+            </div>
+            <div className="craft-bento-small">
+              <img src="/img5_pearls.png" alt="Pearl Selection" />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* VALUES */}
-      <section className="values-section">
+      <section className="values-section" style={{ padding: '100px 5vw', clear: 'both', position: 'relative', zIndex: 10 }}>
         <div className="values-header">
-          <h2 className="text-serif" style={{ fontSize: '4rem' }}>Our Commitments<br/>to You</h2>
+          <h2 className="text-serif" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)' }}>Our Commitments<br/>to You</h2>
           <Link to="/order" className="bento-link">Book Consultation &rarr;</Link>
         </div>
         

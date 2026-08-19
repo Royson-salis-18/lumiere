@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useModal } from '../context/ModalContext';
 
 const pageVariants = {
   initial: { opacity: 0, filter: 'blur(10px)' },
@@ -9,6 +10,7 @@ const pageVariants = {
 
 export default function Home() {
   const heroRef = useRef(null);
+  const { openModal } = useModal();
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
@@ -46,8 +48,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Left Bento Card */}
-          <div className="bento-container">
+          {/* Bottom Right Bento Card (Moved to right) */}
+          <div className="bento-container" style={{ right: '5vw', left: 'auto', transform: 'none', bottom: '40px' }}>
             {/* Socials Box */}
             <div className="bento-socials">
               <div className="social-icon">In</div>
@@ -58,7 +60,7 @@ export default function Home() {
             {/* Main Info Bento */}
             <div className="bento-card main-bento">
               <div className="bento-img-wrap">
-                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=90&auto=format&fit=crop" alt="Bracelet" />
+                <img src="/img4_vintage.png" alt="Bracelet" />
               </div>
               <div className="bento-content">
                 <h3 className="bento-title">Unlock Your<br/>Potential Your<br/>Journey</h3>
@@ -73,10 +75,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Right Paragraph */}
-          <div className="hero-paragraph">
-            <h4 className="text-gold" style={{ fontSize: '0.85rem', marginBottom: '8px', letterSpacing: '0.05em' }}>Lumière Jewelry</h4>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', lineHeight: '1.6', maxWidth: '300px' }}>
+          {/* Bottom Left Paragraph (Moved from right to left) */}
+          <div className="hero-paragraph" style={{ left: '5vw', right: 'auto', textAlign: 'left' }}>
+            <h4 className="text-gold" style={{ fontSize: '1.2rem', marginBottom: '12px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Lumière Jewelry</h4>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', maxWidth: '350px' }}>
               Join a passionate community, supporting and motivating each other every step of your luxury journey.
             </p>
           </div>
@@ -97,8 +99,18 @@ export default function Home() {
       <section className="editorial-section">
         <div className="editorial-header">
           <h2 className="editorial-title text-serif">Curated<br/><span className="text-gold">Masterpieces</span></h2>
-          <p style={{ maxWidth: '300px', color: 'var(--text-muted)' }}>
-            Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary.
+          <p style={{
+            maxWidth: '450px',
+            fontSize: '1.4rem',
+            lineHeight: 1.6,
+            color: 'var(--accent-dark)',
+            textAlign: 'right',
+            fontFamily: 'var(--font-serif)',
+            fontStyle: 'italic',
+            borderRight: '3px solid var(--accent-gold)',
+            paddingRight: '24px'
+          }}>
+            "Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary."
           </p>
         </div>
 
@@ -109,11 +121,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => openModal({ name: "Eternal Bloom", img: "/img1_ring.png", price: "$4,200", desc: "A masterpiece of brilliant cuts." })}
+            style={{ cursor: 'pointer' }}
           >
-            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=90&auto=format&fit=crop" alt="Ring" />
+            <img src="/img1_ring.png" alt="Ring" />
             <div className="item-overlay">
               <h3 className="text-serif" style={{ fontSize: '2.5rem' }}>Eternal Bloom</h3>
-              <p className="text-gold">View Details</p>
+              <p className="text-gold">Quick View</p>
             </div>
           </motion.div>
 
@@ -123,10 +137,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => openModal({ name: "Aura Cascade", img: "/img3_earrings.png", price: "$14,000", desc: "Cascading rubies set in rose gold." })}
+            style={{ cursor: 'pointer' }}
           >
-            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=90&auto=format&fit=crop" alt="Earrings" />
+            <img src="/img3_earrings.png" alt="Earrings" />
             <div className="item-overlay">
               <h3 className="text-serif" style={{ fontSize: '2rem' }}>Aura Cascade</h3>
+              <p className="text-gold">Quick View</p>
             </div>
           </motion.div>
 
@@ -136,10 +153,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => openModal({ name: "Velvet Tear", img: "/img2_necklace.png", price: "$12,400", desc: "A stunning deep blue sapphire pendant." })}
+            style={{ cursor: 'pointer' }}
           >
-            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=800&q=90&auto=format&fit=crop" alt="Necklace" />
+            <img src="/img2_necklace.png" alt="Necklace" />
             <div className="item-overlay">
               <h3 className="text-serif" style={{ fontSize: '2rem' }}>Velvet Tear</h3>
+              <p className="text-gold">Quick View</p>
             </div>
           </motion.div>
 
@@ -149,11 +169,13 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => openModal({ name: "Lumière Signature", img: "/img5_pearls.png", price: "$6,900", desc: "Classic elegance." })}
+            style={{ cursor: 'pointer' }}
           >
-            <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=800&q=90&auto=format&fit=crop" alt="Bridal" />
+            <img src="/img5_pearls.png" alt="Bridal" />
             <div className="item-overlay">
               <h3 className="text-serif" style={{ fontSize: '3rem' }}>Lumière Signature</h3>
-              <p className="text-gold">Explore Collection</p>
+              <p className="text-gold">Quick View</p>
             </div>
           </motion.div>
         </div>

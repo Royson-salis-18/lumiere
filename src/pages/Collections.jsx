@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { useModal } from '../context/ModalContext';
 
 const pageVariants = {
   initial: { opacity: 0, y: 50 },
@@ -8,11 +10,11 @@ const pageVariants = {
 };
 
 const CAROUSEL_ITEMS = [
-  { id: 0, name: "Sapphire Solstice", price: "$12,400", desc: "A nutritionally complete—wait, no, a structurally complete masterpiece featuring a massive blue sapphire surrounded by conflict-free diamonds.", img: "https://images.unsplash.com/photo-1599643478514-4a4e06d528c8?w=800&q=85&auto=format&fit=crop" },
-  { id: 1, name: "Diamond Halo Ring", price: "$8,200", desc: "A perfectly cut central diamond encased in a glowing halo of smaller stones, set in pristine platinum for the unforgettable moments.", img: "https://images.unsplash.com/photo-1605100804763-247f67b2548e?w=800&q=80" },
-  { id: 2, name: "Heritage Gold Band", price: "$4,500", desc: "Crafted for generations. A vintage-inspired solid gold band featuring intricate filigree work and subtle diamond accents.", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&q=80" },
-  { id: 3, name: "Pearl Choker", price: "$6,900", desc: "A delicate string of south sea pearls, bringing a touch of classic elegance to the modern, curated wardrobe.", img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80" },
-  { id: 4, name: "Ruby Chandeliers", price: "$14,000", desc: "Cascading rubies set in rose gold. Designed to catch the light and the attention of everyone in the room.", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" }
+  { id: 0, name: "Sapphire Solstice", price: "$12,400", desc: "A structurally complete masterpiece featuring a massive blue sapphire surrounded by conflict-free diamonds.", img: "/img2_necklace.png" },
+  { id: 1, name: "Diamond Halo Ring", price: "$8,200", desc: "A perfectly cut central diamond encased in a glowing halo of smaller stones, set in pristine platinum for the unforgettable moments.", img: "/img1_ring.png" },
+  { id: 2, name: "Heritage Gold Band", price: "$4,500", desc: "Crafted for generations. A vintage-inspired solid gold band featuring intricate filigree work and subtle diamond accents.", img: "/img4_vintage.png" },
+  { id: 3, name: "Pearl Choker", price: "$6,900", desc: "A delicate string of south sea pearls, bringing a touch of classic elegance to the modern, curated wardrobe.", img: "/img5_pearls.png" },
+  { id: 4, name: "Ruby Chandeliers", price: "$14,000", desc: "Cascading rubies set in rose gold. Designed to catch the light and the attention of everyone in the room.", img: "/img3_earrings.png" }
 ];
 
 const MAIN_POS   = { left: 56, top: 50, scale: 3.05 };
@@ -25,6 +27,7 @@ const PERIM_POS  = [
 
 export default function Collections() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { openModal } = useModal();
   
   // Create an array mapping each item to its current slot
   // slot -1 is the main position. slots 0-3 are perimeter positions.
@@ -38,14 +41,24 @@ export default function Collections() {
       animate="in"
       exit="out"
     >
-      <div className="collection-header-row">
+      <div className="collection-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '80px', padding: '0 2vw' }}>
         <div>
-          <h1 className="text-massive" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)' }}>
+          <h1 className="text-massive" style={{ fontSize: 'clamp(3.5rem, 6vw, 6.5rem)' }}>
             Curated<br/><span className="text-gold">Masterpieces</span>
           </h1>
         </div>
-        <div className="collection-header-desc">
-          Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary.
+        <div style={{
+          maxWidth: '450px',
+          fontSize: '1.4rem',
+          lineHeight: 1.6,
+          color: 'var(--accent-dark)',
+          textAlign: 'right',
+          fontFamily: 'var(--font-serif)',
+          fontStyle: 'italic',
+          borderRight: '3px solid var(--accent-gold)',
+          paddingRight: '24px'
+        }}>
+          "Each piece is an exploration of form and light, meticulously crafted by our master artisans to transcend the ordinary."
         </div>
       </div>
 
@@ -66,7 +79,11 @@ export default function Collections() {
               <div className="text-gold" style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '32px' }}>
                 {CAROUSEL_ITEMS[activeIndex].price}
               </div>
-              <button className="btn-solid-dark" style={{ padding: '16px 40px', borderRadius: '50px' }}>
+              <button 
+                className="btn-solid-dark" 
+                style={{ padding: '16px 40px', borderRadius: '50px' }}
+                onClick={() => openModal(CAROUSEL_ITEMS[activeIndex])}
+              >
                 View Details
               </button>
             </motion.div>
@@ -87,7 +104,10 @@ export default function Collections() {
               <motion.div
                 key={item.id}
                 className={`supreme-dish ${isMain ? 'is-main' : ''}`}
-                onClick={() => !isMain && setActiveIndex(item.id)}
+                onClick={() => {
+                  if (!isMain) setActiveIndex(item.id);
+                  else openModal(item);
+                }}
                 animate={{
                   left: `${isMain ? MAIN_POS.left : PERIM_POS[slotIndex].left}%`,
                   top: `${isMain ? MAIN_POS.top : PERIM_POS[slotIndex].top}%`,
@@ -95,7 +115,7 @@ export default function Collections() {
                   zIndex: isMain ? 20 : 15,
                 }}
                 transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-                style={{ x: '-50%', y: '-50%' }}
+                style={{ x: '-50%', y: '-50%', cursor: 'pointer' }}
               >
                 <img src={item.img} alt={item.name} />
               </motion.div>
@@ -106,47 +126,47 @@ export default function Collections() {
 
       {/* BLENDED GRID (ASYMMETRICAL BENTO STYLE) */}
       <div className="blended-grid">
-        <div className="blend-hero">
-          <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=1200&q=85" alt="Hero Lookbook" />
+        <Link to="/collections/rakhi-edit" className="blend-hero">
+          <img src="/img5_pearls.png" alt="Hero Lookbook" />
           <div className="promo-overlay">
             <h3 className="text-serif" style={{ fontSize: '3rem', marginBottom: '16px' }}>The Rakhi Edit</h3>
             <button className="btn-solid-dark" style={{ padding: '12px 32px', borderRadius: '50px' }}>Shop Collection</button>
           </div>
-        </div>
+        </Link>
         
         <div className="blend-stack">
-          <div className="blend-stack-item">
-            <img src="https://images.unsplash.com/photo-1605100804763-247f67b2548e?w=800&q=80" alt="Item" />
+          <Link to="/collections/emerald-cut" className="blend-stack-item">
+            <img src="/img1_ring.png" alt="Item" />
             <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
               <div className="masonry-name">Emerald Cut Halo</div>
-              <div className="masonry-price">$4,200</div>
+              <div className="masonry-price">View Collection</div>
             </div>
-          </div>
-          <div className="blend-stack-item">
-            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80" alt="Item" />
+          </Link>
+          <Link to="/collections/sapphire-drop" className="blend-stack-item">
+            <img src="/img2_necklace.png" alt="Item" />
             <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
               <div className="masonry-name">Sapphire Drop</div>
-              <div className="masonry-price">$8,900</div>
+              <div className="masonry-price">View Collection</div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
       <div className="blended-grid" style={{ gridAutoRows: '500px', gridTemplateColumns: 'repeat(3, 1fr)' }}>
-        <div className="blend-stack-item">
-          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800&q=80" alt="Item" />
+        <Link to="/collections/ruby-chandeliers" className="blend-stack-item">
+          <img src="/img3_earrings.png" alt="Item" />
           <div className="masonry-details" style={{ opacity: 1, transform: 'none', background: 'linear-gradient(to top, rgba(74, 21, 33, 0.9), transparent)' }}>
             <div className="masonry-name">Ruby Chandeliers</div>
-            <div className="masonry-price">$12,000</div>
+            <div className="masonry-price">View Collection</div>
           </div>
-        </div>
-        <div className="blend-stack-item" style={{ gridColumn: 'span 2' }}>
-          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=85" alt="Item" />
+        </Link>
+        <Link to="/collections/heritage" className="blend-stack-item" style={{ gridColumn: 'span 2' }}>
+          <img src="/img4_vintage.png" alt="Item" />
           <div className="promo-overlay">
-            <h3 className="text-serif" style={{ fontSize: '3rem', marginBottom: '16px' }}>Choose Your Look</h3>
+            <h3 className="text-serif" style={{ fontSize: '3rem', marginBottom: '16px' }}>Heritage High Jewellery</h3>
             <button className="btn-solid-dark" style={{ padding: '12px 32px', borderRadius: '50px' }}>Explore Now</button>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* DECORATIVE ASSURANCE SECTION */}

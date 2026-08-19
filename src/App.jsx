@@ -6,6 +6,9 @@ import Collections from './pages/Collections';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
+import CollectionDetail from './pages/CollectionDetail';
+import { ModalProvider } from './context/ModalContext';
+import ProductModal from './components/ProductModal';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -21,10 +24,7 @@ function Nav() {
 
   return (
     <nav className="nav-container">
-      <Link to="/" className="nav-brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginRight: '12px' }}>
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
+      <Link to="/" className="nav-brand text-serif" style={{ letterSpacing: '0.15em', fontWeight: 600, fontSize: '1.4rem' }}>
         LUMIÈRE
       </Link>
       
@@ -49,6 +49,7 @@ function AnimatedRoutes() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/collections" element={<Collections />} />
+        <Route path="/collections/:id" element={<CollectionDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
@@ -59,10 +60,12 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Nav />
-      <AnimatedRoutes />
+    <ModalProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Nav />
+        <AnimatedRoutes />
+        <ProductModal />
 
       {/* SUPER DESIGNER FOOTER */}
       <footer className="designer-footer">
@@ -76,65 +79,61 @@ export default function App() {
         <div className="footer-content">
           <div className="footer-col brand-col">
             <div className="footer-logo">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="1" style={{ marginBottom: '16px' }}>
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
-              <h2 className="text-serif text-gold" style={{ fontSize: '2.5rem', letterSpacing: '0.1em' }}>LUMIÈRE</h2>
+              <h2 className="text-serif text-gold" style={{ fontSize: '2.5rem', letterSpacing: '0.15em', fontWeight: 600 }}>LUMIÈRE</h2>
             </div>
             
-            <div className="qr-section">
-              <p style={{ marginBottom: '16px', fontWeight: 600 }}>Download the Lumière App Now</p>
-              <div className="qr-code-placeholder">
-                {/* Simulated QR Code squares */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '4px', width: '100px', height: '100px', background: '#FFF', padding: '8px' }}>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px', gridColumn: 'span 2' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                  <div style={{ background: '#000', borderRadius: '4px' }}></div>
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
-                <button className="app-btn">Play Store</button>
-                <button className="app-btn">App Store</button>
-              </div>
+            <div className="newsletter-block">
+               <h4 style={{ marginBottom: '16px', fontWeight: 600, fontSize: '1.1rem' }}>Join the Atelier</h4>
+               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', marginBottom: '24px', lineHeight: 1.5 }}>
+                 Subscribe to receive exclusive access to our newest collections, private sales, and editorial lookbooks.
+               </p>
+               <div className="newsletter-input-group">
+                 <input type="email" placeholder="Email Address" className="newsletter-input" />
+                 <button className="newsletter-btn">Subscribe</button>
+               </div>
             </div>
           </div>
 
           <div className="footer-links-grid">
             <div className="footer-col">
-              <h4 className="footer-heading">Useful Links</h4>
-              <a href="#">Delivery Information</a>
-              <a href="#">International Shipping</a>
+              <h4 className="footer-heading">Client Care</h4>
+              <a href="#">Track Your Order</a>
+              <a href="#">Returns & Exchanges</a>
+              <a href="#">Shipping Information</a>
               <a href="#">Payment Options</a>
-              <a href="#">Track your Order</a>
-              <a href="#">Returns</a>
-              <a href="#">Find a Store</a>
+              <a href="#">Repair Services</a>
+              <a href="#">Ring Sizing Guide</a>
             </div>
 
             <div className="footer-col">
-              <h4 className="footer-heading">Information</h4>
-              <a href="#">Careers</a>
-              <a href="#">Blog</a>
-              <a href="#">Offers & Contest Details</a>
-              <a href="#">Help & FAQs</a>
+              <h4 className="footer-heading">The Maison</h4>
               <a href="#">About Lumière</a>
+              <a href="#">Our Heritage</a>
+              <a href="#">Sustainability</a>
+              <a href="#">Careers</a>
+              <a href="#">Press & Editorials</a>
+              <a href="#">Boutiques</a>
+            </div>
+
+            <div className="footer-col">
+              <h4 className="footer-heading">Policies</h4>
+              <a href="#">Terms & Conditions</a>
+              <a href="#">Privacy Policy</a>
               <a href="#">Cookie Policy</a>
+              <a href="#">Conflict-Free Diamonds</a>
+              <a href="#">BIS Hallmarking</a>
             </div>
 
             <div className="footer-col">
               <h4 className="footer-heading">Contact Us</h4>
               <a href="tel:18002966677" style={{ display: 'block', marginBottom: '8px' }}>1800-296-6677</a>
+              <a href="mailto:care@lumiere.paris">care@lumiere.paris</a>
               <h4 className="footer-heading" style={{ marginTop: '24px' }}>Chat With Us</h4>
-              <a href="tel:+918147349242">+91 8147349242</a>
-              <div className="social-row" style={{ marginTop: '24px', display: 'flex', gap: '16px' }}>
-                <span className="social-circle">W</span>
-                <span className="social-circle">E</span>
-                <span className="social-circle">C</span>
+              <a href="tel:+918147349242">WhatsApp: +91 8147349242</a>
+              <div className="social-row" style={{ marginTop: '16px', display: 'flex', gap: '12px' }}>
+                <span className="social-circle">IG</span>
+                <span className="social-circle">FB</span>
+                <span className="social-circle">YT</span>
               </div>
             </div>
           </div>
@@ -158,6 +157,7 @@ export default function App() {
           </div>
         </div>
       </footer>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ModalProvider>
   );
 }
