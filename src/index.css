@@ -537,6 +537,10 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   font-family: var(--font-serif);
 }
 
+/* Desktop Hero Helper Classes */
+.bento-desktop-right { right: 5vw; left: auto; transform: none; bottom: 40px; }
+.paragraph-desktop-left { left: 5vw; right: auto; text-align: left; }
+
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 900px) {
   .nav-pill { flex-wrap: wrap; justify-content: center; gap: 4px; }
@@ -590,9 +594,12 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   .hero-inset {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 100px 5vw 40px !important;
+    padding: 140px 5vw 40px !important;
+    height: auto !important;
+    min-height: 100vh;
+    gap: 40px;
   }
   .hero-text-container {
     position: relative !important;
@@ -602,7 +609,8 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
     bottom: auto !important;
     text-align: center;
     align-items: center;
-    margin-bottom: 24px;
+    margin-bottom: 0 !important;
+    width: 100%;
   }
   .text-massive {
     font-size: clamp(3.5rem, 15vw, 6rem) !important;

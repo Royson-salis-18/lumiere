@@ -49,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Right Bento Card (Moved to right) */}
-          <div className="bento-container" style={{ right: '5vw', left: 'auto', transform: 'none', bottom: '40px' }}>
+          <div className="bento-container bento-desktop-right">
             {/* Socials Box */}
             <div className="bento-socials">
               <div className="social-icon">In</div>
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Left Paragraph (Moved from right to left) */}
-          <div className="hero-paragraph" style={{ left: '5vw', right: 'auto', textAlign: 'left' }}>
+          <div className="hero-paragraph paragraph-desktop-left">
             <h4 className="text-gold" style={{ fontSize: '1.2rem', marginBottom: '12px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Lumière Jewelry</h4>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', maxWidth: '350px' }}>
               Join a passionate community, supporting and motivating each other every step of your luxury journey.
