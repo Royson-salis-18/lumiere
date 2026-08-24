@@ -83,20 +83,27 @@ export default function Home() {
 
           {/* Bottom Left KPI Stats */}
           <div className="hero-paragraph paragraph-desktop-left">
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
-              <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>100+</div>
-                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Years Heritage</div>
+            <div style={{
+              display: 'flex', gap: '0', alignItems: 'stretch',
+              background: 'rgba(0,0,0,0.55)',
+              backdropFilter: 'blur(12px)',
+              borderRadius: '16px',
+              border: '1px solid rgba(255,255,255,0.1)',
+              overflow: 'hidden'
+            }}>
+              <div style={{ padding: '20px 28px', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>100+</div>
+                <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>Years Heritage</div>
               </div>
-              <div style={{ width: '1px', height: '48px', background: 'rgba(255,255,255,0.2)', marginTop: '4px' }} />
-              <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>50k+</div>
-                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Clients Served</div>
+              <div style={{ width: '1px', background: 'rgba(255,255,255,0.12)' }} />
+              <div style={{ padding: '20px 28px', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>50k+</div>
+                <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>Clients Served</div>
               </div>
-              <div style={{ width: '1px', height: '48px', background: 'rgba(255,255,255,0.2)', marginTop: '4px' }} />
-              <div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: 'var(--accent-gold)', marginBottom: '6px' }}>GIA</div>
-                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Certified</div>
+              <div style={{ width: '1px', background: 'rgba(255,255,255,0.12)' }} />
+              <div style={{ padding: '20px 28px', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', lineHeight: 1, color: 'var(--accent-gold)', marginBottom: '6px' }}>GIA</div>
+                <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.65)', fontWeight: 600 }}>Certified</div>
               </div>
             </div>
           </div>
