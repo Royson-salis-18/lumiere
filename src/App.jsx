@@ -42,34 +42,40 @@ function Nav() {
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const links = [
-    { to: '/',           label: 'Home'        },
-    { to: '/collections',label: 'Collections' },
-    { to: '/about',      label: 'Atelier'     },
-    { to: '/contact',    label: 'Contact'     },
+  const leftLinks = [
+    { to: '/collections', label: 'High Jewellery' },
+    { to: '/collections', label: 'Collections' },
+    { to: '/about',       label: 'The Maison' },
   ];
 
   return (
     <>
-      <nav className="nav-container">
-        <Link to="/" className="nav-brand text-serif" style={{ letterSpacing: '0.15em', fontWeight: 600, fontSize: '1.4rem' }}>
-          LUMIÈRE
-        </Link>
-
-        {/* Desktop pill links */}
-        <div className="nav-pill nav-desktop-only">
-          {links.map(l => (
-            <Link key={l.to} to={l.to} className={`nav-pill-link ${path === l.to ? 'active' : ''}`}>{l.label}</Link>
+      <nav className="nav-container premium-nav">
+        {/* Left Side: Navigation Links */}
+        <div className="nav-left nav-desktop-only">
+          {leftLinks.map((l, i) => (
+            <Link key={i} to={l.to} className={`nav-link ${path === l.to ? 'active' : ''}`}>{l.label}</Link>
           ))}
         </div>
 
-        <div className="nav-actions">
-          <Link to="/cart" className="nav-btn-cart">Cart</Link>
+        {/* Center: Brand Logo */}
+        <div className="nav-center">
+          <Link to="/" className="nav-brand text-serif">
+            LUMIÈRE
+          </Link>
+        </div>
 
-          {/* Profile dropdown — desktop only */}
+        {/* Right Side: Actions & Profile */}
+        <div className="nav-right">
+          {/* Search Icon */}
+          <button className="nav-icon-btn nav-desktop-only" aria-label="Search">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+
+          {/* Profile Dropdown */}
           <div className="nav-profile-wrap nav-desktop-only" ref={profileRef}>
-            <button className="nav-profile-btn" onClick={() => setProfileOpen(o => !o)} aria-label="Account menu">
-              <span className="nav-profile-avatar">A</span>
+            <button className="nav-icon-btn" onClick={() => setProfileOpen(o => !o)} aria-label="Account">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </button>
             {profileOpen && (
               <div className="nav-profile-dropdown">
@@ -93,6 +99,11 @@ function Nav() {
             )}
           </div>
 
+          {/* Cart Icon */}
+          <Link to="/cart" className="nav-icon-btn" aria-label="Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          </Link>
+
           {/* Hamburger — mobile only */}
           <button className="nav-hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu" aria-expanded={menuOpen}>
             <span className={`ham-bar ${menuOpen ? 'open' : ''}`} />
@@ -107,8 +118,8 @@ function Nav() {
         <div className="drawer-inner">
           <p className="drawer-brand text-serif">LUMIÈRE</p>
           <nav className="drawer-links">
-            {links.map(l => (
-              <Link key={l.to} to={l.to} className={`drawer-link ${path === l.to ? 'drawer-link-active' : ''}`}>{l.label}</Link>
+            {leftLinks.map((l, i) => (
+              <Link key={i} to={l.to} className={`drawer-link ${path === l.to ? 'drawer-link-active' : ''}`}>{l.label}</Link>
             ))}
             <Link to="/cart"     className="drawer-link">Cart</Link>
             <Link to="/profile"  className="drawer-link">My Profile</Link>
