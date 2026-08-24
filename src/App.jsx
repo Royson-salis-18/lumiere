@@ -51,18 +51,18 @@ function Nav() {
   return (
     <>
       <nav className="nav-container premium-nav">
-        {/* Left Side: Navigation Links */}
-        <div className="nav-left nav-desktop-only">
-          {leftLinks.map((l, i) => (
-            <Link key={i} to={l.to} className={`nav-link ${path === l.to ? 'active' : ''}`}>{l.label}</Link>
-          ))}
-        </div>
-
-        {/* Center: Brand Logo */}
-        <div className="nav-center">
+        {/* Left: Brand Logo */}
+        <div className="nav-left">
           <Link to="/" className="nav-brand text-serif">
             LUMIÈRE
           </Link>
+        </div>
+
+        {/* Center: Navigation Links */}
+        <div className="nav-center nav-desktop-only">
+          {leftLinks.map((l, i) => (
+            <Link key={i} to={l.to} className={`nav-link ${path === l.to ? 'active' : ''}`}>{l.label}</Link>
+          ))}
         </div>
 
         {/* Right Side: Actions & Profile */}
