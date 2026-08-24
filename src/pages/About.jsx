@@ -55,16 +55,24 @@ export default function About() {
 
       {/* STORY STRIP & CRAFTSMANSHIP BENTO */}
       <section style={{ padding: '100px 5vw' }}>
-        <div style={{ marginBottom: '100px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span className="section-label" style={{ marginBottom: '24px' }}>Our Philosophy</span>
-          <h2 className="text-serif text-gold" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', lineHeight: 1.1, marginBottom: '40px' }}>
-            Made with Intent.<br/>Worn with Pride.
-          </h2>
-          <p className="page-body-large" style={{ maxWidth: '800px', color: 'var(--text-muted)' }}>
-            Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty. 
-            <br/><br/>
-            Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion.
-          </p>
+        <div className="philosophy-layout">
+          <div>
+            <span className="section-label" style={{ marginBottom: '24px', display: 'inline-block' }}>Our Philosophy</span>
+            <h2 className="text-serif text-gold" style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)', lineHeight: 1.1, marginBottom: '32px' }}>
+              Made with Intent.<br/>Worn with Pride.
+            </h2>
+            <div style={{ width: '80px', height: '2px', background: 'var(--accent-gold)', marginBottom: '24px' }}></div>
+          </div>
+          <div>
+            <p className="page-body-large" style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '32px' }}>
+              Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty.
+            </p>
+            <div style={{ paddingLeft: '32px', borderLeft: '3px solid var(--accent-gold)', background: 'linear-gradient(90deg, rgba(198,159,54,0.05) 0%, transparent 100%)', padding: '24px 24px 24px 32px', borderRadius: '0 16px 16px 0' }}>
+              <p className="text-serif" style={{ color: 'var(--text-primary)', fontStyle: 'italic', fontSize: '1.4rem', lineHeight: 1.6, margin: 0 }}>
+                "Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion."
+              </p>
+            </div>
+          </div>
         </div>
         
         <div className="craftsmanship-bento-grid">

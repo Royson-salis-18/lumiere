@@ -1220,3 +1220,20 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   .checkout-step-label { display: none; }
   .settings-form-card { padding: 24px 20px; }
 }
+
+/* =========================================================
+   ABOUT PAGE REFINEMENTS
+   ========================================================= */
+.philosophy-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+@media (max-width: 900px) {
+  .philosophy-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
