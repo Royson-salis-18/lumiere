@@ -81,12 +81,24 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Left Paragraph (Moved from right to left) */}
+          {/* Bottom Left KPI Stats */}
           <div className="hero-paragraph paragraph-desktop-left">
-            <h4 className="text-gold" style={{ fontSize: '1.2rem', marginBottom: '12px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Lumière Jewelry</h4>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', maxWidth: '350px' }}>
-              Join a passionate community, supporting and motivating each other every step of your luxury journey.
-            </p>
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
+              <div>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>100+</div>
+                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Years Heritage</div>
+              </div>
+              <div style={{ width: '1px', height: '48px', background: 'rgba(255,255,255,0.2)', marginTop: '4px' }} />
+              <div>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: '#fff', marginBottom: '6px' }}>50k+</div>
+                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Clients Served</div>
+              </div>
+              <div style={{ width: '1px', height: '48px', background: 'rgba(255,255,255,0.2)', marginTop: '4px' }} />
+              <div>
+                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '2.4rem', lineHeight: 1, color: 'var(--accent-gold)', marginBottom: '6px' }}>GIA</div>
+                <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>Certified</div>
+              </div>
+            </div>
           </div>
           
         </div>
