@@ -559,7 +559,7 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 @media (max-width: 768px) { .modal-grid { grid-template-columns: 1fr; } .modal-details { padding: 32px; } .modal-img-wrap { min-height: 300px; } }
 
 /* CRAFTSMANSHIP BENTO */
-.craftsmanship-bento-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; width: 100%; height: 600px; }
+.craftsmanship-bento-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; width: 100%; min-height: 600px; }
 .craft-bento-large { position: relative; border-radius: 24px; overflow: hidden; background: #eee; }
 .craft-bento-large img { width: 100%; height: 100%; object-fit: cover; }
 .craft-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: #fff; }

@@ -55,23 +55,18 @@ export default function About() {
 
       {/* STORY STRIP & CRAFTSMANSHIP BENTO */}
       <section style={{ padding: '100px 5vw' }}>
-        <div className="philosophy-layout">
-          <div>
-            <span className="section-label" style={{ marginBottom: '24px', display: 'inline-block' }}>Our Philosophy</span>
-            <h2 className="text-serif text-gold" style={{ fontSize: 'clamp(2.5rem, 5vw, 5rem)', lineHeight: 1.1, marginBottom: '32px' }}>
-              Made with Intent.<br/>Worn with Pride.
-            </h2>
-            <div style={{ width: '80px', height: '2px', background: 'var(--accent-gold)', marginBottom: '24px' }}></div>
-          </div>
-          <div>
-            <p className="page-body-large" style={{ color: 'var(--text-muted)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '32px' }}>
-              Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty.
+        <div style={{ marginBottom: '120px', textAlign: 'center', maxWidth: '900px', margin: '0 auto 120px' }}>
+          <span className="section-label" style={{ marginBottom: '24px' }}>Our Philosophy</span>
+          <h2 className="text-serif" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: 'var(--accent-gold)', marginBottom: '32px', lineHeight: 1.2 }}>
+            Made with Intent.<br/>Worn with Pride.
+          </h2>
+          <p className="page-body-large" style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>
+            Every Lumière piece begins as a conversation between our designers and the materials themselves. We use only BIS 916 Hallmarked gold, GIA-certified conflict-free diamonds, and ethically sourced gemstones — because the story of a jewel matters as much as its beauty.
+          </p>
+          <div style={{ display: 'inline-block', padding: '0 40px', borderLeft: '1px solid var(--accent-gold)', borderRight: '1px solid var(--accent-gold)' }}>
+            <p className="text-serif" style={{ fontSize: '1.5rem', color: 'var(--text-primary)', fontStyle: 'italic', margin: 0 }}>
+              "Our craftspeople spend up to 300 hours on a single bridal set.<br/>That is not production. That is devotion."
             </p>
-            <div style={{ paddingLeft: '32px', borderLeft: '3px solid var(--accent-gold)', background: 'linear-gradient(90deg, rgba(198,159,54,0.05) 0%, transparent 100%)', padding: '24px 24px 24px 32px', borderRadius: '0 16px 16px 0' }}>
-              <p className="text-serif" style={{ color: 'var(--text-primary)', fontStyle: 'italic', fontSize: '1.4rem', lineHeight: 1.6, margin: 0 }}>
-                "Our craftspeople spend up to 300 hours on a single bridal set. That is not production. That is devotion."
-              </p>
-            </div>
           </div>
         </div>
         
@@ -96,9 +91,9 @@ export default function About() {
 
       {/* VALUES */}
       <section className="values-section" style={{ padding: '100px 5vw', clear: 'both', position: 'relative', zIndex: 10 }}>
-        <div className="values-header">
+        <div className="values-header" style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}>
           <h2 className="text-serif" style={{ fontSize: 'clamp(3rem, 5vw, 4rem)' }}>Our Commitments<br/>to You</h2>
-          <Link to="/order" className="bento-link">Book Consultation &rarr;</Link>
+          <Link to="/contact" className="btn-solid-dark" style={{ padding: '16px 40px', borderRadius: '50px', fontSize: '1.05rem', whiteSpace: 'nowrap' }}>Book Consultation &rarr;</Link>
         </div>
         
         <div className="values-grid">
