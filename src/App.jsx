@@ -43,7 +43,7 @@ function Nav() {
   }, []);
 
   const leftLinks = [
-    { to: '/collections', label: 'Bridal' },
+    { to: '/collections', label: 'Highlights' },
     { to: '/collections', label: 'Collections' },
     { to: '/about',       label: 'The Maison' },
   ];
