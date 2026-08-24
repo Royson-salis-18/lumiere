@@ -91,14 +91,16 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   display: flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
   border-radius: 50%;
-  color: var(--text-primary);
-  transition: background 0.4s ease, color 0.4s ease;
+  color: var(--accent-dark);
+  opacity: 0.6;
+  transition: background 0.3s ease, opacity 0.3s ease;
   background: transparent;
   border: none;
   cursor: pointer;
 }
 .nav-icon-btn:hover {
-  background: rgba(0,0,0,0.04);
+  background: rgba(198,159,54,0.08);
+  opacity: 1;
   color: var(--accent-dark);
 }
 
