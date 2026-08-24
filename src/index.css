@@ -868,9 +868,9 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
    PROFILE PAGE
    ========================================================= */
 .profile-hero-strip {
-  display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
   background: var(--bg-surface); border: 1px solid var(--border-subtle);
-  border-radius: 28px; padding: 40px 48px; margin-bottom: 32px;
+  border-radius: 28px; padding: 56px 64px; margin-bottom: 48px;
 }
 .profile-avatar-wrap { position: relative; flex-shrink: 0; }
 .profile-avatar {
@@ -890,13 +890,13 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 
 /* LOYALTY CARD */
 .loyalty-card {
-  border-radius: 24px; overflow: hidden; margin-bottom: 40px;
-  background: linear-gradient(135deg, var(--accent-dark) 0%, #7c1f36 50%, #3d0e1b 100%);
-  box-shadow: 0 20px 60px rgba(74,21,33,0.3);
+  border-radius: 24px; overflow: hidden; margin-bottom: 60px;
+  background: var(--accent-dark);
+  box-shadow: 0 10px 40px rgba(74,21,33,0.15);
 }
 .loyalty-card-inner {
-  display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;
-  padding: 40px 48px; color: #fff;
+  display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;
+  padding: 56px 64px; color: #fff;
 }
 .loyalty-tier-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent-gold); margin-bottom: 8px; font-weight: 700; }
 .loyalty-points { font-family: var(--font-serif); font-size: 3rem; line-height: 1; }

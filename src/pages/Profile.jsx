@@ -84,13 +84,34 @@ export default function Profile() {
 
           {activeTab === 'Overview' && (
             <div className="profile-overview-grid">
-              {[['🛍️','3','Total Orders'],['💛','3','Wishlist Items'],['📅','2','Appointments'],['🏅','2,450','Loyalty Points']].map(([icon,val,lbl]) => (
-                <div className="profile-stat-card" key={lbl}>
-                  <div className="pstat-icon">{icon}</div>
-                  <div className="pstat-value">{val}</div>
-                  <div className="pstat-label">{lbl}</div>
+              <div className="profile-stat-card">
+                <div className="pstat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
                 </div>
-              ))}
+                <div className="pstat-value">3</div>
+                <div className="pstat-label">Total Orders</div>
+              </div>
+              <div className="profile-stat-card">
+                <div className="pstat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <div className="pstat-value">3</div>
+                <div className="pstat-label">Wishlist Items</div>
+              </div>
+              <div className="profile-stat-card">
+                <div className="pstat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div className="pstat-value">2</div>
+                <div className="pstat-label">Appointments</div>
+              </div>
+              <div className="profile-stat-card">
+                <div className="pstat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
+                <div className="pstat-value">2,450</div>
+                <div className="pstat-label">Loyalty Points</div>
+              </div>
               <div className="profile-section-card" style={{ gridColumn: '1/-1' }}>
                 <h3 className="profile-section-title">Recent Orders</h3>
                 {ORDERS.slice(0, 2).map(o => (
@@ -130,7 +151,12 @@ export default function Profile() {
               <div className="wishlist-grid">
                 {WISHLIST.map(item => (
                   <div className="wishlist-item-card" key={item.name}>
-                    <div className="wishlist-item-img"><img src={item.img} alt={item.name} /><button className="btn-wishlist-remove">✕</button></div>
+                    <div className="wishlist-item-img">
+                      <img src={item.img} alt={item.name} />
+                      <button className="btn-wishlist-remove">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                      </button>
+                    </div>
                     <div className="wishlist-item-info">
                       <div className="wishlist-item-name">{item.name}</div>
                       <div className="wishlist-item-price text-gold">{item.price}</div>
@@ -147,7 +173,9 @@ export default function Profile() {
               <h3 className="profile-section-title">My Appointments</h3>
               {APPOINTMENTS.map((a, i) => (
                 <div className="appt-row" key={i}>
-                  <div className="appt-icon">📍</div>
+                  <div className="appt-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
                   <div className="appt-info"><div className="appt-type">{a.type}</div><div className="appt-boutique">{a.boutique}</div><div className="appt-date">{a.date}</div></div>
                   <div className="appt-status" style={{ color: STATUS_COLOR[a.status] }}>{a.status}</div>
                   <div className="appt-actions"><button className="profile-action-link">Reschedule</button><button className="profile-action-link" style={{ color:'#dc2626' }}>Cancel</button></div>

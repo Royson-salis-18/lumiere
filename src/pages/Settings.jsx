@@ -61,7 +61,7 @@ export default function Settings() {
                       <option>Female</option><option>Male</option><option>Non-binary</option><option>Prefer not to say</option>
                     </select>
                   </div>
-                  {saved && <div className="success-msg">✓ Profile saved successfully!</div>}
+                  {saved && <div className="success-msg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px'}}><polyline points="20 6 9 17 4 12"></polyline></svg> Profile saved successfully!</div>}
                   <button type="submit" className="btn-solid-dark" style={{ borderRadius: '50px', padding: '18px', fontSize: '1rem' }}>Save Changes</button>
                 </form>
               </div>
@@ -158,7 +158,7 @@ export default function Settings() {
                   <div className="form-group"><label>Current Password</label><input type="password" placeholder="••••••••" /></div>
                   <div className="form-group"><label>New Password</label><input type="password" placeholder="••••••••" /></div>
                   <div className="form-group"><label>Confirm New Password</label><input type="password" placeholder="••••••••" /></div>
-                  {saved && <div className="success-msg">✓ Password updated successfully!</div>}
+                  {saved && <div className="success-msg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: '6px'}}><polyline points="20 6 9 17 4 12"></polyline></svg> Password updated successfully!</div>}
                   <button type="submit" className="btn-solid-dark" style={{ borderRadius: '50px', padding: '18px', fontSize: '1rem' }}>Update Password</button>
                 </form>
               </div>

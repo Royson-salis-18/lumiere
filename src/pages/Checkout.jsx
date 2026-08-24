@@ -34,7 +34,9 @@ export default function Checkout() {
           {STEPS.map((s, i) => (
             <React.Fragment key={s}>
               <div className={`checkout-step ${step > i ? 'done' : ''} ${step === i + 1 ? 'active' : ''}`}>
-                <div className="checkout-step-dot">{step > i + 1 ? '✓' : i + 1}</div>
+                <div className="checkout-step-dot">{step > i + 1 ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                ) : i + 1}</div>
                 <span className="checkout-step-label">{s}</span>
               </div>
               {i < STEPS.length - 1 && <div className={`checkout-step-line ${step > i + 1 ? 'done' : ''}`} />}
@@ -108,7 +110,7 @@ export default function Checkout() {
               <form className="settings-form-card" onSubmit={handleSubmit}>
                 <h2 className="settings-section-title" style={{ fontSize: '1.3rem', marginBottom: '24px' }}>Payment Details</h2>
                 <div className="payment-methods">
-                  {['💳 Credit / Debit Card','🏦 Net Banking','📱 UPI','💰 EMI Options'].map(m => (
+                  {['Credit / Debit Card','Net Banking','UPI','EMI Options'].map(m => (
                     <label key={m} className="shipping-option-card" style={{ padding: '16px 20px' }}>
                       <input type="radio" name="payment" defaultChecked={m.includes('Credit')} />
                       <span style={{ fontWeight: 600 }}>{m}</span>
@@ -123,7 +125,8 @@ export default function Checkout() {
                   </div>
                   <div className="form-group"><label>Name on Card</label><input placeholder="ADITI SHARMA" /></div>
                   <div style={{ display: 'flex', gap: '10px', alignItems: 'center', padding: '14px 16px', background: 'rgba(22,163,74,0.06)', border: '1px solid rgba(22,163,74,0.2)', borderRadius: '12px', fontSize: '0.9rem', color: '#16a34a' }}>
-                    🔒 Your payment is secured with 256-bit SSL encryption and Lumière Secure Pay.
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Your payment is secured with 256-bit SSL encryption and Lumière Secure Pay.
                   </div>
                 </div>
                 <button type="submit" className="btn-solid-dark" style={{ borderRadius: '50px', padding: '18px', fontSize: '1rem', marginTop: '24px' }}>Place Order →</button>
@@ -163,7 +166,9 @@ export default function Checkout() {
       ) : (
         /* CONFIRMATION */
         <div style={{ textAlign: 'center', padding: '80px 0' }}>
-          <div style={{ fontSize: '5rem', marginBottom: '24px' }}>✨</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px', color: 'var(--accent-gold)' }}>
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path><polyline points="8 12 12 16 16 12"></polyline></svg>
+          </div>
           <h2 className="text-serif" style={{ fontSize: 'clamp(2rem,5vw,4rem)', marginBottom: '16px' }}>
             Order <span className="text-gold">Confirmed</span>
           </h2>

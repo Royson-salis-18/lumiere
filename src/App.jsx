@@ -81,14 +81,14 @@ function Nav() {
                   </div>
                 </div>
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)', margin: '8px 0' }} />
-                <Link to="/profile"  className="nav-dropdown-item">👤  My Profile</Link>
-                <Link to="/profile"  className="nav-dropdown-item" onClick={() => {}}>🛍️  My Orders</Link>
-                <Link to="/track"    className="nav-dropdown-item">📦  Track Order</Link>
-                <Link to="/checkout" className="nav-dropdown-item">💳  Checkout</Link>
-                <Link to="/settings" className="nav-dropdown-item">⚙️  Settings</Link>
+                <Link to="/profile"  className="nav-dropdown-item">My Profile</Link>
+                <Link to="/profile"  className="nav-dropdown-item">My Orders</Link>
+                <Link to="/track"    className="nav-dropdown-item">Track Order</Link>
+                <Link to="/checkout" className="nav-dropdown-item">Checkout</Link>
+                <Link to="/settings" className="nav-dropdown-item">Settings</Link>
                 <hr style={{ border: 'none', borderTop: '1px solid var(--border-subtle)', margin: '8px 0' }} />
                 <button className="nav-dropdown-item" style={{ color: '#dc2626', width: '100%', textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: '10px 16px', borderRadius: '10px', fontFamily: 'inherit', fontSize: '0.95rem' }}>
-                  🚪  Sign Out
+                  Sign Out
                 </button>
               </div>
             )}
